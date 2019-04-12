@@ -14,3 +14,8 @@ import (
 	"reorglens/internal/chain"
 	"reorglens/internal/report"
 )
+
+const version = "0.1.0"
+
+const usageText = `usage: reorglens <command> [flags]
+
