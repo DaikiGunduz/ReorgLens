@@ -7,3 +7,8 @@ import (
 	"testing"
 )
 
+const (
+	cleanSample   = "../../samples/clean.jsonl"
+	reorgSample   = "../../samples/reorged.jsonl"
+	invalidSample = "../../samples/invalid-lines.jsonl"
+)
