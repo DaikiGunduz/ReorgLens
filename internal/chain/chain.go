@@ -5,3 +5,6 @@
 // the capture and reports where the picture does not hold together.
 package chain
 
+import (
+	"errors"
+	"fmt"
