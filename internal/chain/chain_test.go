@@ -5,3 +5,6 @@ import (
 	"strings"
 	"testing"
 
+	"reorglens/internal/block"
+)
+
