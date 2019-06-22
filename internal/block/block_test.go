@@ -1,0 +1,4 @@
+package block
+
+import (
+	"strings"
