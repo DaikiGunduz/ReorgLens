@@ -4,3 +4,6 @@
 // Text output is ordered and padded so that two runs against the same input
 // produce byte identical bytes and a diff of two exports stays readable.
 package report
+
+import (
+	"encoding/json"
