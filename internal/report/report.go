@@ -7,3 +7,6 @@ package report
 
 import (
 	"encoding/json"
+	"fmt"
+	"io"
+	"strings"
