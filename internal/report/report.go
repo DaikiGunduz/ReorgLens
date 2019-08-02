@@ -5,3 +5,10 @@
 // produce byte identical bytes and a diff of two exports stays readable.
 package report
 
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"strings"
+
+	"reorglens/internal/block"
