@@ -19,3 +19,10 @@ import (
 type Meta struct {
 	Version  string
 	Command  string
+	Input    string
+	Detail   bool
+	ExitCode int
+}
+
+// Finding is one entry of the JSON detail list. The fields map holds only the
+// keys that apply to the class, and encoding/json sorts those keys, so the
