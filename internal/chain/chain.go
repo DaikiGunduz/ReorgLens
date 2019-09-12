@@ -8,3 +8,7 @@ package chain
 import (
 	"errors"
 	"fmt"
+	"slices"
+	"strings"
+
+	"reorglens/internal/block"
