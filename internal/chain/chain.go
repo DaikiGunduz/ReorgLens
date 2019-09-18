@@ -12,3 +12,6 @@ import (
 	"strings"
 
 	"reorglens/internal/block"
+)
+
+// MaxWindow bounds how many block numbers a single run will enumerate. The
