@@ -10,3 +10,6 @@ import (
 	"fmt"
 	"io"
 	"strings"
+
+	"reorglens/internal/block"
+	"reorglens/internal/chain"
