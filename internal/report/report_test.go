@@ -6,3 +6,6 @@ import (
 	"strings"
 	"testing"
 
+	"reorglens/internal/block"
+	"reorglens/internal/chain"
+)
