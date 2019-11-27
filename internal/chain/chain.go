@@ -14,3 +14,12 @@ import (
 	"reorglens/internal/block"
 )
 
+// MaxWindow bounds how many block numbers a single run will enumerate. The
+// range flags can widen the window beyond the capture, and this is the guard
+// that stops a typo turning into a ten minute loop.
+const MaxWindow = 10_000_000
+
+// Finding classes. These strings are part of the output contract.
+const (
+	ClassMissing           = "missing"
+	ClassDuplicate         = "duplicate"
