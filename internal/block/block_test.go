@@ -19,3 +19,7 @@ func read(t *testing.T, input string) ([]*Record, []BadLine, error) {
 func TestReadAllValid(t *testing.T) {
 	recs, bad, err := read(t, goodLine+"\n")
 	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
+	}
+	if len(bad) != 0 {
+		t.Fatalf("bad lines = %d, want 0", len(bad))
