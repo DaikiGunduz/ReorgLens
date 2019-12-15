@@ -23,3 +23,11 @@ const MaxWindow = 10_000_000
 const (
 	ClassMissing           = "missing"
 	ClassDuplicate         = "duplicate"
+	ClassCanonicalConflict = "canonical-conflict"
+	ClassOrphanSegment     = "orphan-segment"
+	ClassParentMismatch    = "parent-mismatch"
+	ClassTimestampOrder    = "timestamp-order"
+)
+
+// Severities. error breaks the shape of the canonical chain, warn breaks the
+// completeness or ambiguity of the capture.
