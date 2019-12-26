@@ -20,3 +20,9 @@ func fixture() *chain.Analysis {
 		Parent:    chain.ParentStats{Checked: 4, Verified: 3, Mismatch: 1, Unverified: 0},
 		Timestamp: chain.TimestampStats{Checked: 4, OutOfOrder: 1},
 		Missing:   []uint64{102},
+		Duplicates: []chain.Duplicate{
+			{Number: 103, Records: 2, Hashes: []string{"0xaa", "0xbb"}},
+		},
+		Conflicts: []chain.Conflict{
+			{Number: 101, Records: 2, Hashes: []string{"0xaa", "0xbb"}},
+		},
