@@ -19,3 +19,6 @@ import (
 // that stops a typo turning into a ten minute loop.
 const MaxWindow = 10_000_000
 
+// Finding classes. These strings are part of the output contract.
+const (
+	ClassMissing           = "missing"
