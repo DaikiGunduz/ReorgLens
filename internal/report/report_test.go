@@ -26,3 +26,9 @@ func fixture() *chain.Analysis {
 		Conflicts: []chain.Conflict{
 			{Number: 101, Records: 2, Hashes: []string{"0xaa", "0xbb"}},
 		},
+		Orphans: []chain.OrphanSegment{{From: 104, To: 104, Records: 1}},
+		Mismatches: []chain.ParentMismatch{
+			{Number: 103, ParentNumber: 102, Expected: "0xaa", Observed: "0xbb"},
+		},
+		Orders: []chain.TimestampOrder{
+			{Number: 104, ParentNumber: 103, Timestamp: 5, ParentTimestamp: 5},
