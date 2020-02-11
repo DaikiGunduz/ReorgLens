@@ -31,3 +31,12 @@ const (
 
 // Severities. error breaks the shape of the canonical chain, warn breaks the
 // completeness or ambiguity of the capture.
+const (
+	SeverityError = "error"
+	SeverityWarn  = "warn"
+)
+
+// Options narrows or widens the window beyond the range of the capture.
+type Options struct {
+	From *uint64
+	To   *uint64
