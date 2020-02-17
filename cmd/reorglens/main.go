@@ -5,3 +5,5 @@ package main
 import (
 	"errors"
 	"flag"
+	"fmt"
+	"io"
