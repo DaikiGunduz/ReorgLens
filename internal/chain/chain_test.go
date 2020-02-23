@@ -17,3 +17,12 @@ func h(v byte) string {
 func addr(v byte) string {
 	return "0x" + strings.Repeat(fmt.Sprintf("%02x", v), 20)
 }
+
+func blk(number uint64, hash, parent string, ts uint64, canonical bool) string {
+	c := "true"
+	if !canonical {
+		c = "false"
+	}
+	return fmt.Sprintf(`{"number":%d,"hash":"%s","parentHash":"%s","timestamp":%d,"canonical":%s}`,
+		number, hash, parent, ts, c)
+}
