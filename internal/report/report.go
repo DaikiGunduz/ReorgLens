@@ -13,3 +13,7 @@ import (
 
 	"reorglens/internal/block"
 	"reorglens/internal/chain"
+)
+
+// Meta describes the run that produced the analysis.
+type Meta struct {
