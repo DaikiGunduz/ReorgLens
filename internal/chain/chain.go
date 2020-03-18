@@ -22,3 +22,7 @@ const MaxWindow = 10_000_000
 // Finding classes. These strings are part of the output contract.
 const (
 	ClassMissing           = "missing"
+	ClassDuplicate         = "duplicate"
+	ClassCanonicalConflict = "canonical-conflict"
+	ClassOrphanSegment     = "orphan-segment"
+	ClassParentMismatch    = "parent-mismatch"
