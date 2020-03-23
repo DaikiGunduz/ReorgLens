@@ -48,3 +48,12 @@ type Duplicate struct {
 	Records int      `json:"records"`
 	Hashes  []string `json:"hashes"`
 }
+
+// Conflict is a number that carries more than one record flagged canonical.
+type Conflict struct {
+	Number  uint64   `json:"number"`
+	Records int      `json:"records"`
+	Hashes  []string `json:"hashes"`
+}
+
+// OrphanSegment is a maximal run of numbers that has records but no canonical
