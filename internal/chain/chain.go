@@ -26,3 +26,6 @@ const (
 	ClassCanonicalConflict = "canonical-conflict"
 	ClassOrphanSegment     = "orphan-segment"
 	ClassParentMismatch    = "parent-mismatch"
+	ClassTimestampOrder    = "timestamp-order"
+)
+
