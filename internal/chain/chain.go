@@ -57,3 +57,11 @@ type Conflict struct {
 }
 
 // OrphanSegment is a maximal run of numbers that has records but no canonical
+// record, meaning the capture observed a branch the chain did not keep.
+type OrphanSegment struct {
+	From    uint64 `json:"from"`
+	To      uint64 `json:"to"`
+	Records int    `json:"records"`
+}
+
+// ParentMismatch is a point where two adjacent canonical records do not link.
