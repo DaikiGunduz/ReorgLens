@@ -7,3 +7,5 @@
 // exactly the thing worth reporting.
 package block
 
+import (
+	"bufio"
