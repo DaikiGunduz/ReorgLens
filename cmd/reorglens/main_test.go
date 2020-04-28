@@ -13,3 +13,5 @@ const (
 	invalidSample = "../../samples/invalid-lines.jsonl"
 )
 
+func runArgs(args ...string) (int, string, string) {
+	var out, errOut bytes.Buffer
