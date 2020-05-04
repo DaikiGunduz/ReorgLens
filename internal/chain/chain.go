@@ -33,3 +33,7 @@ const (
 // completeness or ambiguity of the capture.
 const (
 	SeverityError = "error"
+	SeverityWarn  = "warn"
+)
+
+// Options narrows or widens the window beyond the range of the capture.
