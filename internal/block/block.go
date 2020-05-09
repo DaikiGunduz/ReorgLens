@@ -9,3 +9,5 @@ package block
 
 import (
 	"bufio"
+	"encoding/json"
+	"fmt"
