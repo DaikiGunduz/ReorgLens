@@ -37,3 +37,6 @@ const (
 )
 
 // Options narrows or widens the window beyond the range of the capture.
+type Options struct {
+	From *uint64
+	To   *uint64
