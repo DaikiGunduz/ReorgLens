@@ -18,3 +18,6 @@ func fixture() *chain.Analysis {
 		Valid: 6, Invalid: 1, Outside: 0,
 		CanonicalRecords: 5, OrphanRecords: 1,
 		Parent:    chain.ParentStats{Checked: 4, Verified: 3, Mismatch: 1, Unverified: 0},
+		Timestamp: chain.TimestampStats{Checked: 4, OutOfOrder: 1},
+		Missing:   []uint64{102},
+		Duplicates: []chain.Duplicate{
