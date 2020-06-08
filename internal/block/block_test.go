@@ -28,3 +28,7 @@ func TestReadAllValid(t *testing.T) {
 		t.Fatalf("records = %d, want 1", len(recs))
 	}
 	r := recs[0]
+	if r.Number != 19000100 {
+		t.Errorf("Number = %d, want 19000100", r.Number)
+	}
+	if r.Hash != "0x"+fixed64 {
