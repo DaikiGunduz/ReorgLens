@@ -33,3 +33,11 @@ type Finding struct {
 	Fields   map[string]any `json:"fields"`
 }
 
+type jsonReport struct {
+	Tool      string             `json:"tool"`
+	Version   string             `json:"version"`
+	Command   string             `json:"command"`
+	Input     string             `json:"input"`
+	Window    jsonWindow         `json:"window"`
+	Records   jsonRecords        `json:"records"`
+	Chain     jsonChain          `json:"chain"`
