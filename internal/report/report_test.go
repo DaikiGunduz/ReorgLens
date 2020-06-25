@@ -21,3 +21,6 @@ func fixture() *chain.Analysis {
 		Timestamp: chain.TimestampStats{Checked: 4, OutOfOrder: 1},
 		Missing:   []uint64{102},
 		Duplicates: []chain.Duplicate{
+			{Number: 103, Records: 2, Hashes: []string{"0xaa", "0xbb"}},
+		},
+		Conflicts: []chain.Conflict{
