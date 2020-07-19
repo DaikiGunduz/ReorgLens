@@ -73,3 +73,12 @@ type ParentMismatch struct {
 }
 
 // TimestampOrder is a point where a canonical record's timestamp is not
+// strictly greater than its parent's.
+type TimestampOrder struct {
+	Number          uint64 `json:"number"`
+	ParentNumber    uint64 `json:"parentNumber"`
+	Timestamp       uint64 `json:"timestamp"`
+	ParentTimestamp uint64 `json:"parentTimestamp"`
+}
+
+// ProducerStats tallies the records attributed to one producer address.
