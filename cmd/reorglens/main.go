@@ -36,3 +36,8 @@ func main() {
 func run(args []string, stdout, stderr io.Writer) int {
 	if len(args) == 0 {
 		io.WriteString(stderr, usageText)
+		return 2
+	}
+	switch args[0] {
+	case "analyze":
+		return cmdAnalyze(args[1:], stdout, stderr)
