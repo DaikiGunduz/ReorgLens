@@ -19,3 +19,7 @@ func addr(v byte) string {
 }
 
 func blk(number uint64, hash, parent string, ts uint64, canonical bool) string {
+	c := "true"
+	if !canonical {
+		c = "false"
+	}
