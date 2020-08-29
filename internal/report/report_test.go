@@ -43,3 +43,9 @@ func fixture() *chain.Analysis {
 		BadLines: []block.BadLine{
 			{Line: 4, Reason: `missing field "number"`, Text: `{"hash":"0x.."}`},
 		},
+	}
+}
+
+func meta() Meta {
+	return Meta{
+		Version:  "1.2.3",
