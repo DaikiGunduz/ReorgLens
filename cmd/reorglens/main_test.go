@@ -17,3 +17,5 @@ func runArgs(args ...string) (int, string, string) {
 	var out, errOut bytes.Buffer
 	code := run(args, &out, &errOut)
 	return code, out.String(), errOut.String()
+}
+
