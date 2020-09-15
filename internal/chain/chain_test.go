@@ -27,3 +27,6 @@ func blk(number uint64, hash, parent string, ts uint64, canonical bool) string {
 		number, hash, parent, ts, c)
 }
 
+func analyse(t *testing.T, lines []string, opts Options) (*Analysis, error) {
+	t.Helper()
+	input := ""
