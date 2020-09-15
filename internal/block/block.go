@@ -29,3 +29,8 @@ type Record struct {
 	ParentHash string
 	Timestamp  uint64
 	Producer   string
+	Canonical  bool
+	Line       int
+}
+
+// BadLine records a line that could not be validated, with enough context to
