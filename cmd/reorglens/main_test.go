@@ -26,3 +26,8 @@ func TestNoArgumentsExitsTwo(t *testing.T) {
 	}
 	if !strings.Contains(errOut, "usage:") {
 		t.Errorf("stderr = %q, want the usage text", errOut)
+	}
+}
+
+func TestUnknownCommandExitsTwo(t *testing.T) {
+	code, _, errOut := runArgs("frobnicate")
