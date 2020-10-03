@@ -21,3 +21,6 @@ func runArgs(args ...string) (int, string, string) {
 
 func TestNoArgumentsExitsTwo(t *testing.T) {
 	code, _, errOut := runArgs()
+	if code != 2 {
+		t.Errorf("exit = %d, want 2", code)
+	}
