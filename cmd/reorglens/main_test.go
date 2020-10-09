@@ -36,3 +36,8 @@ func TestUnknownCommandExitsTwo(t *testing.T) {
 	}
 	if !strings.Contains(errOut, `unknown command "frobnicate"`) {
 		t.Errorf("stderr = %q", errOut)
+	}
+}
+
+func TestVersion(t *testing.T) {
+	code, out, _ := runArgs("version")
