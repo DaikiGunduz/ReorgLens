@@ -24,3 +24,5 @@ func TestNoArgumentsExitsTwo(t *testing.T) {
 	if code != 2 {
 		t.Errorf("exit = %d, want 2", code)
 	}
+	if !strings.Contains(errOut, "usage:") {
+		t.Errorf("stderr = %q, want the usage text", errOut)
