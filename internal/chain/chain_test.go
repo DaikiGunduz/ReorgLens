@@ -30,3 +30,7 @@ func blk(number uint64, hash, parent string, ts uint64, canonical bool) string {
 func analyse(t *testing.T, lines []string, opts Options) (*Analysis, error) {
 	t.Helper()
 	input := ""
+	if len(lines) > 0 {
+		input = strings.Join(lines, "\n") + "\n"
+	}
+	recs, bad, err := block.ReadAll(strings.NewReader(input))
