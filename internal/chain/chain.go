@@ -90,3 +90,12 @@ type ProducerStats struct {
 }
 
 // ParentStats counts the adjacent canonical pairs that could be checked.
+type ParentStats struct {
+	Checked    int `json:"checked"`
+	Verified   int `json:"verified"`
+	Mismatch   int `json:"mismatch"`
+	Unverified int `json:"unverified"`
+}
+
+// TimestampStats counts the adjacent canonical pairs and the ordering faults.
+type TimestampStats struct {
