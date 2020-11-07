@@ -32,3 +32,6 @@ func fixture() *chain.Analysis {
 		},
 		Orders: []chain.TimestampOrder{
 			{Number: 104, ParentNumber: 103, Timestamp: 5, ParentTimestamp: 5},
+		},
+		Producers: []chain.ProducerStats{
+			{Producer: "0x01", Canonical: 5, Orphaned: 1, Total: 6},
