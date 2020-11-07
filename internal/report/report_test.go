@@ -49,3 +49,8 @@ func fixture() *chain.Analysis {
 func meta() Meta {
 	return Meta{
 		Version:  "1.2.3",
+		Command:  "analyze",
+		Input:    "fixtures.jsonl",
+		Detail:   true,
+		ExitCode: 1,
+	}
