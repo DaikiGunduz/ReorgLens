@@ -34,3 +34,7 @@ func analyse(t *testing.T, lines []string, opts Options) (*Analysis, error) {
 		input = strings.Join(lines, "\n") + "\n"
 	}
 	recs, bad, err := block.ReadAll(strings.NewReader(input))
+	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
+	}
+	return Analyse(recs, bad, opts)
