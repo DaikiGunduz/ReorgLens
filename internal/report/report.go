@@ -41,3 +41,10 @@ type jsonReport struct {
 	Window    jsonWindow         `json:"window"`
 	Records   jsonRecords        `json:"records"`
 	Chain     jsonChain          `json:"chain"`
+	Parent    chain.ParentStats  `json:"parent"`
+	Timestamp chain.TimestampStats `json:"timestamp"`
+	Producers []chain.ProducerStats `json:"producers"`
+	Findings  jsonFindings       `json:"findings"`
+	Detail    []Finding          `json:"detail"`
+	BadLines  []block.BadLine    `json:"badLines"`
+	Result    string             `json:"result"`
