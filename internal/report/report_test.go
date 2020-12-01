@@ -35,3 +35,6 @@ func fixture() *chain.Analysis {
 		},
 		Producers: []chain.ProducerStats{
 			{Producer: "0x01", Canonical: 5, Orphaned: 1, Total: 6},
+		},
+		HasProducer:    true,
+		ErrorFindings:  3,
