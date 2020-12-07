@@ -26,3 +26,13 @@ func blk(number uint64, hash, parent string, ts uint64, canonical bool) string {
 	return fmt.Sprintf(`{"number":%d,"hash":"%s","parentHash":"%s","timestamp":%d,"canonical":%s}`,
 		number, hash, parent, ts, c)
 }
+
+func analyse(t *testing.T, lines []string, opts Options) (*Analysis, error) {
+	t.Helper()
+	input := ""
+	if len(lines) > 0 {
+		input = strings.Join(lines, "\n") + "\n"
+	}
+	recs, bad, err := block.ReadAll(strings.NewReader(input))
+	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
