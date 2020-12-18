@@ -15,3 +15,5 @@ import (
 	"strings"
 )
 
+// MaxLineBytes bounds one input line so a broken or hostile export cannot
+// exhaust memory. A line longer than this is a read error, not a bad line.
