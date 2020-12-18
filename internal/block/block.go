@@ -40,3 +40,8 @@ type BadLine struct {
 	Reason string `json:"reason"`
 	Text   string `json:"text"`
 }
+
+// ReadAll reads newline delimited JSON records from r. Blank lines are
+// skipped. Every other line becomes either a *Record or a BadLine.
+func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
+	sc := bufio.NewScanner(r)
