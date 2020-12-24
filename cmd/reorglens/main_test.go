@@ -28,3 +28,5 @@ func TestNoArgumentsExitsTwo(t *testing.T) {
 		t.Errorf("stderr = %q, want the usage text", errOut)
 	}
 }
+
+func TestUnknownCommandExitsTwo(t *testing.T) {
