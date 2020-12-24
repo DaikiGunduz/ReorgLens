@@ -107,3 +107,12 @@ type TimestampStats struct {
 // that identical input produces byte identical output.
 type Analysis struct {
 	From    uint64 `json:"from"`
+	To      uint64 `json:"to"`
+	Numbers uint64 `json:"numbers"`
+
+	Valid   int `json:"valid"`
+	Invalid int `json:"invalid"`
+	Outside int `json:"outside"`
+
+	CanonicalRecords int `json:"canonicalRecords"`
+	OrphanRecords    int `json:"orphanRecords"`
