@@ -26,3 +26,6 @@ type Meta struct {
 
 // Finding is one entry of the JSON detail list. The fields map holds only the
 // keys that apply to the class, and encoding/json sorts those keys, so the
+// encoding stays deterministic.
+type Finding struct {
+	Class    string         `json:"class"`
