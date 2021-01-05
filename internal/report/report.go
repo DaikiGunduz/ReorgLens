@@ -29,3 +29,6 @@ type Meta struct {
 // encoding stays deterministic.
 type Finding struct {
 	Class    string         `json:"class"`
+	Severity string         `json:"severity"`
+	Fields   map[string]any `json:"fields"`
+}
