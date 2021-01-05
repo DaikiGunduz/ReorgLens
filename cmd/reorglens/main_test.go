@@ -46,3 +46,8 @@ func TestVersion(t *testing.T) {
 	}
 	if out != "reorglens 0.1.0\n" {
 		t.Errorf("out = %q", out)
+	}
+}
+
+func TestVersionRejectsArguments(t *testing.T) {
+	if code, _, _ := runArgs("version", "extra"); code != 2 {
