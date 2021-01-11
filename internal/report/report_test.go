@@ -38,3 +38,6 @@ func fixture() *chain.Analysis {
 		},
 		HasProducer:    true,
 		ErrorFindings:  3,
+		WarnFindings:   3,
+		TotalFindings:  6,
+		BadLines: []block.BadLine{
