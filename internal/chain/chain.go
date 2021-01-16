@@ -40,3 +40,7 @@ const (
 type Options struct {
 	From *uint64
 	To   *uint64
+}
+
+// Duplicate is a number that carries more than one distinct hash.
+type Duplicate struct {
