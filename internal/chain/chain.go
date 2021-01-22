@@ -44,3 +44,6 @@ type Options struct {
 
 // Duplicate is a number that carries more than one distinct hash.
 type Duplicate struct {
+	Number  uint64   `json:"number"`
+	Records int      `json:"records"`
+	Hashes  []string `json:"hashes"`
