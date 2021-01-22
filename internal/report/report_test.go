@@ -60,3 +60,9 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 	var buf bytes.Buffer
 	if err := Text(&buf, meta(), fixture()); err != nil {
 		t.Fatalf("Text: %v", err)
+	}
+	out := buf.String()
+	want := []string{
+		"reorglens 1.2.3 analyze fixtures.jsonl",
+		"window      100..104  (5 numbers)",
+		"records     6 valid  1 invalid  0 outside",
