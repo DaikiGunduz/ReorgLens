@@ -32,3 +32,7 @@ type Finding struct {
 	Severity string         `json:"severity"`
 	Fields   map[string]any `json:"fields"`
 }
+
+type jsonReport struct {
+	Tool      string             `json:"tool"`
+	Version   string             `json:"version"`
