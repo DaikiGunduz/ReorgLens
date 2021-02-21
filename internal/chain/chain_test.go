@@ -41,3 +41,7 @@ func analyse(t *testing.T, lines []string, opts Options) (*Analysis, error) {
 }
 
 // cleanChain is four contiguous, correctly linked canonical blocks.
+func cleanChain() []string {
+	return []string{
+		blk(100, h(100), h(99), 1000, true),
+		blk(101, h(101), h(100), 1012, true),
