@@ -36,3 +36,12 @@ func analyse(t *testing.T, lines []string, opts Options) (*Analysis, error) {
 	recs, bad, err := block.ReadAll(strings.NewReader(input))
 	if err != nil {
 		t.Fatalf("ReadAll: %v", err)
+	}
+	return Analyse(recs, bad, opts)
+}
+
+// cleanChain is four contiguous, correctly linked canonical blocks.
+func cleanChain() []string {
+	return []string{
+		blk(100, h(100), h(99), 1000, true),
+		blk(101, h(101), h(100), 1012, true),
