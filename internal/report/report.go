@@ -55,3 +55,10 @@ type jsonWindow struct {
 	From    uint64 `json:"from"`
 	To      uint64 `json:"to"`
 	Numbers uint64 `json:"numbers"`
+}
+
+type jsonRecords struct {
+	Valid   int `json:"valid"`
+	Invalid int `json:"invalid"`
+	Outside int `json:"outside"`
+}
