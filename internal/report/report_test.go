@@ -41,3 +41,6 @@ func fixture() *chain.Analysis {
 		WarnFindings:   3,
 		TotalFindings:  6,
 		BadLines: []block.BadLine{
+			{Line: 4, Reason: `missing field "number"`, Text: `{"hash":"0x.."}`},
+		},
+	}
