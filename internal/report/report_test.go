@@ -44,3 +44,6 @@ func fixture() *chain.Analysis {
 			{Line: 4, Reason: `missing field "number"`, Text: `{"hash":"0x.."}`},
 		},
 	}
+}
+
+func meta() Meta {
