@@ -116,3 +116,11 @@ type Analysis struct {
 
 	CanonicalRecords int `json:"canonicalRecords"`
 	OrphanRecords    int `json:"orphanRecords"`
+
+	Parent    ParentStats    `json:"parent"`
+	Timestamp TimestampStats `json:"timestamp"`
+
+	Missing    []uint64           `json:"missing"`
+	Duplicates []Duplicate        `json:"duplicates"`
+	Conflicts  []Conflict         `json:"conflicts"`
+	Orphans    []OrphanSegment    `json:"orphanSegments"`
