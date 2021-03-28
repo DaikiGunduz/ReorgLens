@@ -30,3 +30,5 @@ func TestNoArgumentsExitsTwo(t *testing.T) {
 }
 
 func TestUnknownCommandExitsTwo(t *testing.T) {
+	code, _, errOut := runArgs("frobnicate")
+	if code != 2 {
