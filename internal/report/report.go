@@ -36,3 +36,6 @@ type Finding struct {
 type jsonReport struct {
 	Tool      string             `json:"tool"`
 	Version   string             `json:"version"`
+	Command   string             `json:"command"`
+	Input     string             `json:"input"`
+	Window    jsonWindow         `json:"window"`
