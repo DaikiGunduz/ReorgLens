@@ -50,3 +50,8 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 	var (
 		records []*Record
 		bad     []BadLine
+		n       int
+	)
+	for sc.Scan() {
+		n++
+		text := sc.Text()
