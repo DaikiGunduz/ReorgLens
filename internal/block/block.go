@@ -55,3 +55,9 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 	for sc.Scan() {
 		n++
 		text := sc.Text()
+		if strings.TrimSpace(text) == "" {
+			continue
+		}
+		rec, err := parse(text, n)
+		if err != nil {
+			bad = append(bad, BadLine{Line: n, Reason: err.Error(), Text: shorten(text)})
