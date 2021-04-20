@@ -41,3 +41,7 @@ func TestReadAllValid(t *testing.T) {
 		t.Errorf("Timestamp = %d, want 1712000000", r.Timestamp)
 	}
 	if r.Producer != "0xabcdef0123456789abcdef0123456789abcdef01" {
+		t.Errorf("Producer = %q, want lowercase", r.Producer)
+	}
+	if !r.Canonical {
+		t.Error("Canonical = false, want true")
