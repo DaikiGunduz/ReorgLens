@@ -45,3 +45,7 @@ func cleanChain() []string {
 	return []string{
 		blk(100, h(100), h(99), 1000, true),
 		blk(101, h(101), h(100), 1012, true),
+		blk(102, h(102), h(101), 1024, true),
+		blk(103, h(103), h(102), 1036, true),
+	}
+}
