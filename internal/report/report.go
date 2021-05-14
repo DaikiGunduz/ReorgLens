@@ -62,3 +62,10 @@ type jsonRecords struct {
 	Invalid int `json:"invalid"`
 	Outside int `json:"outside"`
 }
+
+type jsonChain struct {
+	CanonicalRecords int `json:"canonicalRecords"`
+	OrphanRecords    int `json:"orphanRecords"`
+	OrphanSegments   int `json:"orphanSegments"`
+	Missing          int `json:"missing"`
+	Duplicates       int `json:"duplicates"`
