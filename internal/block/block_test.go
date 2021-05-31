@@ -49,3 +49,8 @@ func TestReadAllValid(t *testing.T) {
 	if r.Line != 1 {
 		t.Errorf("Line = %d, want 1", r.Line)
 	}
+}
+
+func TestBlankLinesAreSkipped(t *testing.T) {
+	recs, bad, err := read(t, "\n  \n"+goodLine+"\n\n")
+	if err != nil {
