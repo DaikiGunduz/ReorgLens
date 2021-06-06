@@ -49,3 +49,6 @@ func cleanChain() []string {
 		blk(103, h(103), h(102), 1036, true),
 	}
 }
+
+func TestCleanChainHasNoFindings(t *testing.T) {
+	a, err := analyse(t, cleanChain(), Options{})
