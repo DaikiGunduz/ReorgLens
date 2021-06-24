@@ -55,3 +55,8 @@ func TestVersionRejectsArguments(t *testing.T) {
 	}
 }
 
+func TestHelpExitsZero(t *testing.T) {
+	code, out, _ := runArgs("help")
+	if code != 0 {
+		t.Errorf("exit = %d, want 0", code)
+	}
