@@ -39,3 +39,6 @@ type jsonReport struct {
 	Command   string             `json:"command"`
 	Input     string             `json:"input"`
 	Window    jsonWindow         `json:"window"`
+	Records   jsonRecords        `json:"records"`
+	Chain     jsonChain          `json:"chain"`
+	Parent    chain.ParentStats  `json:"parent"`
