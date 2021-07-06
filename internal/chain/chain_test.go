@@ -52,3 +52,7 @@ func cleanChain() []string {
 
 func TestCleanChainHasNoFindings(t *testing.T) {
 	a, err := analyse(t, cleanChain(), Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if a.TotalFindings != 0 {
