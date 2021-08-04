@@ -51,3 +51,6 @@ type Duplicate struct {
 
 // Conflict is a number that carries more than one record flagged canonical.
 type Conflict struct {
+	Number  uint64   `json:"number"`
+	Records int      `json:"records"`
+	Hashes  []string `json:"hashes"`
