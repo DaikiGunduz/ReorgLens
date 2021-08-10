@@ -77,3 +77,9 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 		"timestamp-order",
 		"missing",
 		"duplicate",
+		"orphan-segment",
+		"invalid lines (1):",
+		`line 4: missing field "number"`,
+		"result      findings present",
+		"exit code   1",
+	}
