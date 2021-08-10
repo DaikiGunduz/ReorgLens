@@ -15,3 +15,5 @@ import (
 	"reorglens/internal/report"
 )
 
+const version = "0.1.0"
+
