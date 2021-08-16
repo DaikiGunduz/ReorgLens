@@ -56,3 +56,7 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 		t.Fatalf("Analyse: %v", err)
 	}
 	if a.TotalFindings != 0 {
+		t.Errorf("TotalFindings = %d, want 0", a.TotalFindings)
+	}
+	if a.From != 100 || a.To != 103 || a.Numbers != 4 {
+		t.Errorf("window = %d..%d (%d), want 100..103 (4)", a.From, a.To, a.Numbers)
