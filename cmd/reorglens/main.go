@@ -57,3 +57,9 @@ func run(args []string, stdout, stderr io.Writer) int {
 		fmt.Fprintf(stderr, "reorglens: unknown command %q\n\n", args[0])
 		io.WriteString(stderr, usageText)
 		return 2
+	}
+}
+
+func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
+	fs := flag.NewFlagSet("analyze", flag.ContinueOnError)
+	fs.SetOutput(stderr)
