@@ -66,3 +66,8 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 		records = append(records, rec)
 	}
 	if err := sc.Err(); err != nil {
+		return nil, nil, fmt.Errorf("reading input: %w", err)
+	}
+	return records, bad, nil
+}
+
