@@ -19,3 +19,5 @@ import (
 // exhaust memory. A line longer than this is a read error, not a bad line.
 const MaxLineBytes = 1 << 20
 
+// maxTextBytes bounds the line text echoed back in a BadLine report.
+const maxTextBytes = 120
