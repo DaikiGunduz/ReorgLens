@@ -69,3 +69,11 @@ type jsonChain struct {
 	OrphanSegments   int `json:"orphanSegments"`
 	Missing          int `json:"missing"`
 	Duplicates       int `json:"duplicates"`
+	Conflicts        int `json:"conflicts"`
+}
+
+type jsonFindings struct {
+	Total   int            `json:"total"`
+	Error   int            `json:"error"`
+	Warn    int            `json:"warn"`
+	ByClass map[string]int `json:"byClass"`
