@@ -74,3 +74,13 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 		t.Errorf("canonical=%d orphan=%d, want 4 and 0", a.CanonicalRecords, a.OrphanRecords)
 	}
 	if a.HasProducer {
+		t.Error("HasProducer = true, want false when the capture carries no producers")
+	}
+}
+
+func TestMissingNumber(t *testing.T) {
+	lines := []string{cleanChain()[0], cleanChain()[2], cleanChain()[3]}
+	a, err := analyse(t, lines, Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
