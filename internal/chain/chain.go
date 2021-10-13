@@ -124,3 +124,11 @@ type Analysis struct {
 	Duplicates []Duplicate        `json:"duplicates"`
 	Conflicts  []Conflict         `json:"conflicts"`
 	Orphans    []OrphanSegment    `json:"orphanSegments"`
+	Mismatches []ParentMismatch   `json:"parentMismatches"`
+	Orders     []TimestampOrder   `json:"timestampOrders"`
+	Producers  []ProducerStats    `json:"producers"`
+	HasProducer bool              `json:"hasProducer"`
+
+	ErrorFindings int `json:"errorFindings"`
+	WarnFindings  int `json:"warnFindings"`
+	TotalFindings int `json:"totalFindings"`
