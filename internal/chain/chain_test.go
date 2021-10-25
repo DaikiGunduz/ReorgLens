@@ -84,3 +84,12 @@ func TestMissingNumber(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Analyse: %v", err)
 	}
+	if len(a.Missing) != 1 || a.Missing[0] != 101 {
+		t.Fatalf("Missing = %v, want [101]", a.Missing)
+	}
+	if a.Parent.Checked != 1 || a.Parent.Unverified != 1 {
+		t.Errorf("parent = %+v, want 1 checked and 1 unverified across the gap", a.Parent)
+	}
+	if a.TotalFindings != 1 || a.WarnFindings != 1 || a.ErrorFindings != 0 {
+		t.Errorf("findings = total %d warn %d error %d, want 1/1/0",
+			a.TotalFindings, a.WarnFindings, a.ErrorFindings)
