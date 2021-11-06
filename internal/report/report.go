@@ -42,3 +42,6 @@ type jsonReport struct {
 	Records   jsonRecords        `json:"records"`
 	Chain     jsonChain          `json:"chain"`
 	Parent    chain.ParentStats  `json:"parent"`
+	Timestamp chain.TimestampStats `json:"timestamp"`
+	Producers []chain.ProducerStats `json:"producers"`
+	Findings  jsonFindings       `json:"findings"`
