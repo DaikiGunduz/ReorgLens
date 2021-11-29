@@ -71,3 +71,9 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 	return records, bad, nil
 }
 
+// parse validates one line. Fields are read out of a raw object rather than
+// into a struct so that a wrong type produces a message about the field the
+// reader wrote, not about an internal Go type name.
+func parse(text string, line int) (*Record, error) {
+	trimmed := strings.TrimSpace(text)
+	if !strings.HasPrefix(trimmed, "{") {
