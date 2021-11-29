@@ -60,3 +60,6 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 	}
 	if a.From != 100 || a.To != 103 || a.Numbers != 4 {
 		t.Errorf("window = %d..%d (%d), want 100..103 (4)", a.From, a.To, a.Numbers)
+	}
+	if a.Valid != 4 || a.Invalid != 0 || a.Outside != 0 {
+		t.Errorf("records = %d/%d/%d, want 4/0/0", a.Valid, a.Invalid, a.Outside)
