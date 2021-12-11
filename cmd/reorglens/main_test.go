@@ -39,3 +39,5 @@ func TestUnknownCommandExitsTwo(t *testing.T) {
 	}
 }
 
+func TestVersion(t *testing.T) {
+	code, out, _ := runArgs("version")
