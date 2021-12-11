@@ -60,3 +60,8 @@ func TestHelpExitsZero(t *testing.T) {
 	if code != 0 {
 		t.Errorf("exit = %d, want 0", code)
 	}
+	if !strings.Contains(out, "commands:") {
+		t.Errorf("out = %q", out)
+	}
+}
+
