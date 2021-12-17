@@ -54,3 +54,7 @@ type Conflict struct {
 	Number  uint64   `json:"number"`
 	Records int      `json:"records"`
 	Hashes  []string `json:"hashes"`
+}
+
+// OrphanSegment is a maximal run of numbers that has records but no canonical
+// record, meaning the capture observed a branch the chain did not keep.
