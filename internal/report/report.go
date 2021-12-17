@@ -84,3 +84,10 @@ func Result(a *chain.Analysis) string {
 	if a.TotalFindings == 0 {
 		return "clean"
 	}
+	return "findings present"
+}
+
+// Text writes the line oriented report.
+func Text(w io.Writer, m Meta, a *chain.Analysis) error {
+	var b strings.Builder
+
