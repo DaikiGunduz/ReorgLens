@@ -141,3 +141,11 @@ type Analysis struct {
 func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analysis, error) {
 	if len(records) == 0 {
 		return nil, errors.New("no valid records to analyse")
+	}
+
+	from, to := records[0].Number, records[0].Number
+	for _, r := range records {
+		if r.Number < from {
+			from = r.Number
+		}
+		if r.Number > to {
