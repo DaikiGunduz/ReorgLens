@@ -58,3 +58,7 @@ func TestBlankLinesAreSkipped(t *testing.T) {
 	}
 	if len(recs) != 1 || len(bad) != 0 {
 		t.Fatalf("records = %d, bad = %d, want 1 and 0", len(recs), len(bad))
+	}
+	if recs[0].Line != 3 {
+		t.Errorf("Line = %d, want 3 (blank lines still count)", recs[0].Line)
+	}
