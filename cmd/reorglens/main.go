@@ -22,3 +22,5 @@ const usageText = `usage: reorglens <command> [flags]
 commands:
   analyze   read a JSONL block export and report findings
   explain   print the finding classes, severities and exit codes
+  version   print the version
+
