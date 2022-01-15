@@ -63,3 +63,7 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 	}
 	if a.Valid != 4 || a.Invalid != 0 || a.Outside != 0 {
 		t.Errorf("records = %d/%d/%d, want 4/0/0", a.Valid, a.Invalid, a.Outside)
+	}
+	if a.Parent.Checked != 3 || a.Parent.Verified != 3 || a.Parent.Mismatch != 0 || a.Parent.Unverified != 0 {
+		t.Errorf("parent = %+v, want 3 checked all verified", a.Parent)
+	}
