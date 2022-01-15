@@ -103,3 +103,12 @@ func TestDuplicateNumber(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Analyse: %v", err)
 	}
+	if len(a.Duplicates) != 1 {
+		t.Fatalf("Duplicates = %v, want one", a.Duplicates)
+	}
+	d := a.Duplicates[0]
+	if d.Number != 101 || d.Records != 2 || len(d.Hashes) != 2 {
+		t.Errorf("duplicate = %+v, want number 101 with 2 records and 2 hashes", d)
+	}
+	if d.Hashes[0] >= d.Hashes[1] {
+		t.Errorf("hashes = %v, want ascending", d.Hashes)
