@@ -24,3 +24,5 @@ commands:
   explain   print the finding classes, severities and exit codes
   version   print the version
 
+run 'reorglens analyze -h' for the flags of the main command
+
