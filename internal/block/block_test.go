@@ -10,3 +10,4 @@ const goodLine = `{"number":19000100,"hash":"0x` + fixed64 + `","parentHash":"0x
 
 const fixed64 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 const parent64 = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+
