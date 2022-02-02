@@ -83,3 +83,8 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 		"result      findings present",
 		"exit code   1",
 	}
+	for _, w := range want {
+		if !strings.Contains(out, w) {
+			t.Errorf("output missing %q\n---\n%s", w, out)
+		}
+	}
