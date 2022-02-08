@@ -62,3 +62,8 @@ func TestBlankLinesAreSkipped(t *testing.T) {
 	if recs[0].Line != 3 {
 		t.Errorf("Line = %d, want 3 (blank lines still count)", recs[0].Line)
 	}
+}
+
+func TestCanonicalDefaultsTrue(t *testing.T) {
+	line := `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1}`
+	recs, bad, err := read(t, line+"\n")
