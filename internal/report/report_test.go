@@ -53,3 +53,6 @@ func meta() Meta {
 		Input:    "fixtures.jsonl",
 		Detail:   true,
 		ExitCode: 1,
+	}
+}
+
