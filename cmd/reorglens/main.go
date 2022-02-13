@@ -26,3 +26,5 @@ commands:
 
 run 'reorglens analyze -h' for the flags of the main command
 
+exit codes: 0 clean, 1 findings, 2 usage or input error
+`
