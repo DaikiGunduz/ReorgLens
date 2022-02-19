@@ -88,3 +88,9 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 			t.Errorf("output missing %q\n---\n%s", w, out)
 		}
 	}
+}
+
+func TestTextErrorsAreListedBeforeWarnings(t *testing.T) {
+	var buf bytes.Buffer
+	if err := Text(&buf, meta(), fixture()); err != nil {
+		t.Fatalf("Text: %v", err)
