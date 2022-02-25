@@ -77,3 +77,8 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 func parse(text string, line int) (*Record, error) {
 	trimmed := strings.TrimSpace(text)
 	if !strings.HasPrefix(trimmed, "{") {
+		return nil, fmt.Errorf("invalid JSON: want an object, got %s", shorten(trimmed))
+	}
+	var raw map[string]json.RawMessage
+	if err := json.Unmarshal([]byte(trimmed), &raw); err != nil {
+		return nil, fmt.Errorf("invalid JSON: %v", err)
