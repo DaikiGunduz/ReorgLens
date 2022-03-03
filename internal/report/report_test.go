@@ -56,3 +56,5 @@ func meta() Meta {
 	}
 }
 
+func TestTextReportsEveryFindingClass(t *testing.T) {
+	var buf bytes.Buffer
