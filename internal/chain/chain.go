@@ -61,3 +61,7 @@ type Conflict struct {
 type OrphanSegment struct {
 	From    uint64 `json:"from"`
 	To      uint64 `json:"to"`
+	Records int    `json:"records"`
+}
+
+// ParentMismatch is a point where two adjacent canonical records do not link.
