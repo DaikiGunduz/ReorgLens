@@ -67,3 +67,7 @@ func TestBlankLinesAreSkipped(t *testing.T) {
 func TestCanonicalDefaultsTrue(t *testing.T) {
 	line := `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1}`
 	recs, bad, err := read(t, line+"\n")
+	if err != nil || len(bad) != 0 || len(recs) != 1 {
+		t.Fatalf("err=%v bad=%v recs=%d", err, bad, len(recs))
+	}
+	if !recs[0].Canonical {
