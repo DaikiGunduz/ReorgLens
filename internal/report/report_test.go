@@ -94,3 +94,9 @@ func TestTextErrorsAreListedBeforeWarnings(t *testing.T) {
 	var buf bytes.Buffer
 	if err := Text(&buf, meta(), fixture()); err != nil {
 		t.Fatalf("Text: %v", err)
+	}
+	out := buf.String()
+	lastError := strings.LastIndex(out, "error ")
+	firstWarn := strings.Index(out, "warn   ")
+	if lastError < 0 || firstWarn < 0 {
+		t.Fatalf("could not find the severity markers\n%s", out)
