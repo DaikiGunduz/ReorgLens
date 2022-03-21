@@ -48,3 +48,6 @@ type jsonReport struct {
 	Detail    []Finding          `json:"detail"`
 	BadLines  []block.BadLine    `json:"badLines"`
 	Result    string             `json:"result"`
+	ExitCode  int                `json:"exitCode"`
+}
+
