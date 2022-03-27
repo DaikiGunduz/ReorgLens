@@ -98,3 +98,10 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 		b.WriteByte('\n')
 	}
 
+	if m.Detail {
+		b.WriteByte('\n')
+		if a.TotalFindings == 0 {
+			b.WriteString("findings: none\n")
+		} else {
+			for _, line := range findingLines(a) {
+				b.WriteString(line)
