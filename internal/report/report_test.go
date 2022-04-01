@@ -58,3 +58,6 @@ func meta() Meta {
 
 func TestTextReportsEveryFindingClass(t *testing.T) {
 	var buf bytes.Buffer
+	if err := Text(&buf, meta(), fixture()); err != nil {
+		t.Fatalf("Text: %v", err)
+	}
