@@ -41,3 +41,5 @@ func TestUnknownCommandExitsTwo(t *testing.T) {
 
 func TestVersion(t *testing.T) {
 	code, out, _ := runArgs("version")
+	if code != 0 {
+		t.Errorf("exit = %d, want 0", code)
