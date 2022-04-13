@@ -149,3 +149,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			from = r.Number
 		}
 		if r.Number > to {
+			to = r.Number
+		}
+	}
+	if opts.From != nil {
+		from = *opts.From
+	}
+	if opts.To != nil {
+		to = *opts.To
+	}
