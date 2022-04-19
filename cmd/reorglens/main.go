@@ -63,3 +63,8 @@ func run(args []string, stdout, stderr io.Writer) int {
 func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	fs := flag.NewFlagSet("analyze", flag.ContinueOnError)
 	fs.SetOutput(stderr)
+	fromFlag := fs.String("from", "", "start of the window as a block number")
+	toFlag := fs.String("to", "", "end of the window as a block number")
+	format := fs.String("format", "text", "output format: text or json")
+	failOn := fs.String("fail-on", "any", "exit 1 threshold: any, error or never")
+	fs.Usage = func() {
