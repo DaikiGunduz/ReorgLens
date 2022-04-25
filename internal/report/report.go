@@ -55,3 +55,6 @@ type jsonWindow struct {
 	From    uint64 `json:"from"`
 	To      uint64 `json:"to"`
 	Numbers uint64 `json:"numbers"`
+}
+
+type jsonRecords struct {
