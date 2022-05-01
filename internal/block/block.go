@@ -23,3 +23,5 @@ const MaxLineBytes = 1 << 20
 const maxTextBytes = 120
 
 // Record is one block observation that passed validation.
+type Record struct {
+	Number     uint64
