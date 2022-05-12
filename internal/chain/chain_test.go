@@ -122,3 +122,13 @@ func TestDuplicateNumber(t *testing.T) {
 }
 
 func TestCanonicalConflict(t *testing.T) {
+	lines := cleanChain()
+	lines = append(lines, blk(101, h(201), h(100), 1012, true))
+	a, err := analyse(t, lines, Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if len(a.Conflicts) != 1 {
+		t.Fatalf("Conflicts = %v, want one", a.Conflicts)
+	}
+	c := a.Conflicts[0]
