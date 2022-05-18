@@ -11,3 +11,5 @@ const goodLine = `{"number":19000100,"hash":"0x` + fixed64 + `","parentHash":"0x
 const fixed64 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 const parent64 = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
 
+func read(t *testing.T, input string) ([]*Record, []BadLine, error) {
+	t.Helper()
