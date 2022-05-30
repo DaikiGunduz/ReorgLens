@@ -64,3 +64,6 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 	out := buf.String()
 	want := []string{
 		"reorglens 1.2.3 analyze fixtures.jsonl",
+		"window      100..104  (5 numbers)",
+		"records     6 valid  1 invalid  0 outside",
+		"canonical   5 records",
