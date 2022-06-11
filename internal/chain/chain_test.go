@@ -67,3 +67,7 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 	if a.Parent.Checked != 3 || a.Parent.Verified != 3 || a.Parent.Mismatch != 0 || a.Parent.Unverified != 0 {
 		t.Errorf("parent = %+v, want 3 checked all verified", a.Parent)
 	}
+	if a.Timestamp.Checked != 3 || a.Timestamp.OutOfOrder != 0 {
+		t.Errorf("timestamp = %+v, want 3 checked none out of order", a.Timestamp)
+	}
+	if a.CanonicalRecords != 4 || a.OrphanRecords != 0 {
