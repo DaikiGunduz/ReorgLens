@@ -82,3 +82,8 @@ func parse(text string, line int) (*Record, error) {
 	var raw map[string]json.RawMessage
 	if err := json.Unmarshal([]byte(trimmed), &raw); err != nil {
 		return nil, fmt.Errorf("invalid JSON: %v", err)
+	}
+
+	number, err := requireUint(raw, "number")
+	if err != nil {
+		return nil, err
