@@ -87,3 +87,8 @@ func parse(text string, line int) (*Record, error) {
 	number, err := requireUint(raw, "number")
 	if err != nil {
 		return nil, err
+	}
+	timestamp, err := requireUint(raw, "timestamp")
+	if err != nil {
+		return nil, err
+	}
