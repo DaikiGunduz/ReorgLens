@@ -61,3 +61,6 @@ type jsonRecords struct {
 	Valid   int `json:"valid"`
 	Invalid int `json:"invalid"`
 	Outside int `json:"outside"`
+}
+
+type jsonChain struct {
