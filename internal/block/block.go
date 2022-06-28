@@ -25,3 +25,5 @@ const maxTextBytes = 120
 // Record is one block observation that passed validation.
 type Record struct {
 	Number     uint64
+	Hash       string
+	ParentHash string
