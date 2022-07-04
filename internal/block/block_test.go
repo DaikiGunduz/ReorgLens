@@ -13,3 +13,5 @@ const parent64 = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 
 func read(t *testing.T, input string) ([]*Record, []BadLine, error) {
 	t.Helper()
+	return ReadAll(strings.NewReader(input))
+}
