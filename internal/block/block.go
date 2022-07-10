@@ -27,3 +27,5 @@ type Record struct {
 	Number     uint64
 	Hash       string
 	ParentHash string
+	Timestamp  uint64
+	Producer   string
