@@ -132,3 +132,12 @@ func TestCanonicalConflict(t *testing.T) {
 		t.Fatalf("Conflicts = %v, want one", a.Conflicts)
 	}
 	c := a.Conflicts[0]
+	if c.Number != 101 || c.Records != 2 || len(c.Hashes) != 2 {
+		t.Errorf("conflict = %+v, want number 101 with 2 canonical records", c)
+	}
+	if a.ErrorFindings != 1 || a.WarnFindings != 0 {
+		t.Errorf("error=%d warn=%d, want 1 and 0", a.ErrorFindings, a.WarnFindings)
+	}
+}
+
+func TestOrphanSegmentGroupsConsecutiveNumbers(t *testing.T) {
