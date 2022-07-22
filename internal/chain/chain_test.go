@@ -141,3 +141,13 @@ func TestCanonicalConflict(t *testing.T) {
 }
 
 func TestOrphanSegmentGroupsConsecutiveNumbers(t *testing.T) {
+	lines := []string{
+		blk(100, h(100), h(99), 1000, true),
+		blk(101, h(101), h(100), 1012, false),
+		blk(102, h(102), h(101), 1024, false),
+	}
+	a, err := analyse(t, lines, Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if len(a.Orphans) != 1 {
