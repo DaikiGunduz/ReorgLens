@@ -43,3 +43,5 @@ func TestVersion(t *testing.T) {
 	code, out, _ := runArgs("version")
 	if code != 0 {
 		t.Errorf("exit = %d, want 0", code)
+	}
+	if out != "reorglens 0.1.0\n" {
