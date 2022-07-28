@@ -92,3 +92,9 @@ func parse(text string, line int) (*Record, error) {
 	if err != nil {
 		return nil, err
 	}
+	hash, err := requireHex(raw, "hash", 64, "a 32 byte hash")
+	if err != nil {
+		return nil, err
+	}
+	parent, err := requireHex(raw, "parentHash", 64, "a 32 byte hash")
+	if err != nil {
