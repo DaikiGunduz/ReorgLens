@@ -71,3 +71,6 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 		t.Errorf("timestamp = %+v, want 3 checked none out of order", a.Timestamp)
 	}
 	if a.CanonicalRecords != 4 || a.OrphanRecords != 0 {
+		t.Errorf("canonical=%d orphan=%d, want 4 and 0", a.CanonicalRecords, a.OrphanRecords)
+	}
+	if a.HasProducer {
