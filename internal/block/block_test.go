@@ -71,3 +71,7 @@ func TestCanonicalDefaultsTrue(t *testing.T) {
 		t.Fatalf("err=%v bad=%v recs=%d", err, bad, len(recs))
 	}
 	if !recs[0].Canonical {
+		t.Error("Canonical = false, want the default true")
+	}
+}
+
