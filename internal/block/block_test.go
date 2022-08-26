@@ -75,3 +75,8 @@ func TestCanonicalDefaultsTrue(t *testing.T) {
 	}
 }
 
+func TestCanonicalFalseHonoured(t *testing.T) {
+	line := `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 +
+		`","timestamp":1,"canonical":false}`
+	recs, _, err := read(t, line+"\n")
+	if err != nil || len(recs) != 1 {
