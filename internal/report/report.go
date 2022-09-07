@@ -120,3 +120,10 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 		fmt.Fprintf(&b, "%-12s%d\n", "exit code", m.ExitCode)
 	}
 
+	_, err := io.WriteString(w, b.String())
+	return err
+}
+
+// JSON writes the machine readable report with fixed field names.
+func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
+	producers := a.Producers
