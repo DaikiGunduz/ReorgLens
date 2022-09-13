@@ -80,3 +80,7 @@ func TestCanonicalFalseHonoured(t *testing.T) {
 		`","timestamp":1,"canonical":false}`
 	recs, _, err := read(t, line+"\n")
 	if err != nil || len(recs) != 1 {
+		t.Fatalf("err=%v recs=%v", err, len(recs))
+	}
+	if recs[0].Canonical {
+		t.Error("Canonical = true, want false")
