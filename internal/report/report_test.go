@@ -105,3 +105,9 @@ func TestTextErrorsAreListedBeforeWarnings(t *testing.T) {
 		t.Errorf("a warning is listed before an error\n%s", out)
 	}
 }
+
+func TestTextCleanRun(t *testing.T) {
+	a := fixture()
+	a.Missing = nil
+	a.Duplicates = nil
+	a.Conflicts = nil
