@@ -151,3 +151,12 @@ func TestOrphanSegmentGroupsConsecutiveNumbers(t *testing.T) {
 		t.Fatalf("Analyse: %v", err)
 	}
 	if len(a.Orphans) != 1 {
+		t.Fatalf("Orphans = %+v, want one segment", a.Orphans)
+	}
+	o := a.Orphans[0]
+	if o.From != 101 || o.To != 102 || o.Records != 2 {
+		t.Errorf("segment = %+v, want 101..102 with 2 records", o)
+	}
+	if a.CanonicalRecords != 1 || a.OrphanRecords != 2 {
+		t.Errorf("canonical=%d orphan=%d, want 1 and 2", a.CanonicalRecords, a.OrphanRecords)
+	}
