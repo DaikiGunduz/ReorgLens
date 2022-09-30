@@ -74,3 +74,8 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	}
 	if err := fs.Parse(args); err != nil {
 		if errors.Is(err, flag.ErrHelp) {
+			return 0
+		}
+		return 2
+	}
+	if fs.NArg() != 1 {
