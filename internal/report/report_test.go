@@ -67,3 +67,6 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 		"window      100..104  (5 numbers)",
 		"records     6 valid  1 invalid  0 outside",
 		"canonical   5 records",
+		"orphaned    1 records in 1 segment",
+		"parent      4 checked  1 mismatch  0 unverified",
+		"timestamp   4 checked  1 out of order",
