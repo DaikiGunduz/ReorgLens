@@ -32,3 +32,5 @@ exit codes: 0 clean, 1 findings, 2 usage or input error
 func main() {
 	os.Exit(run(os.Args[1:], os.Stdout, os.Stderr))
 }
+
+func run(args []string, stdout, stderr io.Writer) int {
