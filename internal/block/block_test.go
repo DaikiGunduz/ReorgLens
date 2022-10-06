@@ -84,3 +84,7 @@ func TestCanonicalFalseHonoured(t *testing.T) {
 	}
 	if recs[0].Canonical {
 		t.Error("Canonical = true, want false")
+	}
+}
+
+func TestBadLines(t *testing.T) {
