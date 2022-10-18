@@ -74,3 +74,7 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 		t.Errorf("canonical=%d orphan=%d, want 4 and 0", a.CanonicalRecords, a.OrphanRecords)
 	}
 	if a.HasProducer {
+		t.Error("HasProducer = true, want false when the capture carries no producers")
+	}
+}
+
