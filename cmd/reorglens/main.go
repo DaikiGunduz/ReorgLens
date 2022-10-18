@@ -79,3 +79,8 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 		return 2
 	}
 	if fs.NArg() != 1 {
+		fs.Usage()
+		return 2
+	}
+	if *format != "text" && *format != "json" {
+		fmt.Fprintf(stderr, "reorglens: --format must be text or json, got %q\n", *format)
