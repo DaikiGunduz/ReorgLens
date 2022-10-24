@@ -78,3 +78,7 @@ func TestCleanChainHasNoFindings(t *testing.T) {
 	}
 }
 
+func TestMissingNumber(t *testing.T) {
+	lines := []string{cleanChain()[0], cleanChain()[2], cleanChain()[3]}
+	a, err := analyse(t, lines, Options{})
+	if err != nil {
