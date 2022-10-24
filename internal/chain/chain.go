@@ -158,3 +158,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 	if opts.To != nil {
 		to = *opts.To
 	}
+	if from > to {
+		return nil, fmt.Errorf("empty window: from %d is greater than to %d", from, to)
+	}
+	if to-from >= MaxWindow {
+		return nil, fmt.Errorf("window %d..%d spans at least %d numbers, the limit is %d",
+			from, to, to-from+1, MaxWindow)
+	}
+
