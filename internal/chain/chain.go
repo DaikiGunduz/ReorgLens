@@ -65,3 +65,7 @@ type OrphanSegment struct {
 }
 
 // ParentMismatch is a point where two adjacent canonical records do not link.
+type ParentMismatch struct {
+	Number       uint64 `json:"number"`
+	ParentNumber uint64 `json:"parentNumber"`
+	Expected     string `json:"expected"`
