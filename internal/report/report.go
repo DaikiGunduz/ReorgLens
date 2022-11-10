@@ -70,3 +70,7 @@ type jsonChain struct {
 	Missing          int `json:"missing"`
 	Duplicates       int `json:"duplicates"`
 	Conflicts        int `json:"conflicts"`
+}
+
+type jsonFindings struct {
+	Total   int            `json:"total"`
