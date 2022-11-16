@@ -69,3 +69,6 @@ type ParentMismatch struct {
 	Number       uint64 `json:"number"`
 	ParentNumber uint64 `json:"parentNumber"`
 	Expected     string `json:"expected"`
+	Observed     string `json:"observed"`
+}
+
