@@ -72,3 +72,7 @@ type ParentMismatch struct {
 	Observed     string `json:"observed"`
 }
 
+// TimestampOrder is a point where a canonical record's timestamp is not
+// strictly greater than its parent's.
+type TimestampOrder struct {
+	Number          uint64 `json:"number"`
