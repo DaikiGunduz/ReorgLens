@@ -82,3 +82,6 @@ func TestMissingNumber(t *testing.T) {
 	lines := []string{cleanChain()[0], cleanChain()[2], cleanChain()[3]}
 	a, err := analyse(t, lines, Options{})
 	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if len(a.Missing) != 1 || a.Missing[0] != 101 {
