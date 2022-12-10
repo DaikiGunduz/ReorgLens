@@ -88,3 +88,8 @@ func TestCanonicalFalseHonoured(t *testing.T) {
 }
 
 func TestBadLines(t *testing.T) {
+	cases := []struct {
+		name string
+		line string
+		want string
+	}{
