@@ -74,3 +74,6 @@ type jsonChain struct {
 
 type jsonFindings struct {
 	Total   int            `json:"total"`
+	Error   int            `json:"error"`
+	Warn    int            `json:"warn"`
+	ByClass map[string]int `json:"byClass"`
