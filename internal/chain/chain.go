@@ -76,3 +76,6 @@ type ParentMismatch struct {
 // strictly greater than its parent's.
 type TimestampOrder struct {
 	Number          uint64 `json:"number"`
+	ParentNumber    uint64 `json:"parentNumber"`
+	Timestamp       uint64 `json:"timestamp"`
+	ParentTimestamp uint64 `json:"parentTimestamp"`
