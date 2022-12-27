@@ -134,3 +134,10 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 	if m.Detail {
 		detail = findings(a)
 	}
+	bad := a.BadLines
+	if bad == nil {
+		bad = make([]block.BadLine, 0)
+	}
+
+	rep := jsonReport{
+		Tool:    "reorglens",
