@@ -36,3 +36,5 @@ func main() {
 func run(args []string, stdout, stderr io.Writer) int {
 	if len(args) == 0 {
 		io.WriteString(stderr, usageText)
+		return 2
+	}
