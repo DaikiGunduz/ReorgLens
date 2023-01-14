@@ -48,3 +48,5 @@ func TestVersion(t *testing.T) {
 		t.Errorf("out = %q", out)
 	}
 }
+
+func TestVersionRejectsArguments(t *testing.T) {
