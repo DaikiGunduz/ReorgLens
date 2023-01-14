@@ -79,3 +79,8 @@ func TestExplainRejectsArguments(t *testing.T) {
 	if code, _, _ := runArgs("explain", "extra"); code != 2 {
 		t.Errorf("exit = %d, want 2", code)
 	}
+}
+
+func TestAnalyzeCleanExitsZero(t *testing.T) {
+	code, out, errOut := runArgs("analyze", cleanSample)
+	if code != 0 {
