@@ -77,3 +77,6 @@ type jsonFindings struct {
 	Error   int            `json:"error"`
 	Warn    int            `json:"warn"`
 	ByClass map[string]int `json:"byClass"`
+}
+
+// Result names the state of the data, independent of the exit threshold.
