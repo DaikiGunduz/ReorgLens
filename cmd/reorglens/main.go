@@ -84,3 +84,9 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	}
 	if *format != "text" && *format != "json" {
 		fmt.Fprintf(stderr, "reorglens: --format must be text or json, got %q\n", *format)
+		return 2
+	}
+	if *failOn != "any" && *failOn != "error" && *failOn != "never" {
+		fmt.Fprintf(stderr, "reorglens: --fail-on must be any, error or never, got %q\n", *failOn)
+		return 2
+	}
