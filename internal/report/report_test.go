@@ -70,3 +70,6 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 		"orphaned    1 records in 1 segment",
 		"parent      4 checked  1 mismatch  0 unverified",
 		"timestamp   4 checked  1 out of order",
+		"producers   1",
+		"findings    6  (3 error, 3 warn)",
+		"canonical-conflict",
