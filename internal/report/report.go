@@ -80,3 +80,6 @@ type jsonFindings struct {
 }
 
 // Result names the state of the data, independent of the exit threshold.
+func Result(a *chain.Analysis) string {
+	if a.TotalFindings == 0 {
+		return "clean"
