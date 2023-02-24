@@ -38,3 +38,4 @@ func run(args []string, stdout, stderr io.Writer) int {
 		io.WriteString(stderr, usageText)
 		return 2
 	}
+	switch args[0] {
