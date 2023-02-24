@@ -89,3 +89,8 @@ func TestAnalyzeCleanExitsZero(t *testing.T) {
 	if !strings.Contains(out, "result      clean") {
 		t.Errorf("out = %q", out)
 	}
+}
+
+func TestAnalyzeReorgedExitsOne(t *testing.T) {
+	code, out, errOut := runArgs("analyze", reorgSample)
+	if code != 1 {
