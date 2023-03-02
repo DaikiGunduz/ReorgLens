@@ -79,3 +79,7 @@ type TimestampOrder struct {
 	ParentNumber    uint64 `json:"parentNumber"`
 	Timestamp       uint64 `json:"timestamp"`
 	ParentTimestamp uint64 `json:"parentTimestamp"`
+}
+
+// ProducerStats tallies the records attributed to one producer address.
+type ProducerStats struct {
