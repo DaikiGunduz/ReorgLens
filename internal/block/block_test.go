@@ -93,3 +93,7 @@ func TestBadLines(t *testing.T) {
 		line string
 		want string
 	}{
+		{"missing number", `{"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1}`, `missing field "number"`},
+		{"missing hash", `{"number":1,"parentHash":"0x` + parent64 + `","timestamp":1}`, `missing field "hash"`},
+		{"missing parent", `{"number":1,"hash":"0x` + fixed64 + `","timestamp":1}`, `missing field "parentHash"`},
+		{"missing timestamp", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `"}`, `missing field "timestamp"`},
