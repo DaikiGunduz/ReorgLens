@@ -148,3 +148,11 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 			From: a.From, To: a.To, Numbers: a.Numbers,
 		},
 		Records: jsonRecords{
+			Valid: a.Valid, Invalid: a.Invalid, Outside: a.Outside,
+		},
+		Chain: jsonChain{
+			CanonicalRecords: a.CanonicalRecords,
+			OrphanRecords:    a.OrphanRecords,
+			OrphanSegments:   len(a.Orphans),
+			Missing:          len(a.Missing),
+			Duplicates:       len(a.Duplicates),
