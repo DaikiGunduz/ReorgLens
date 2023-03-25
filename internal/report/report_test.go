@@ -128,3 +128,9 @@ func TestTextCleanRun(t *testing.T) {
 	out := buf.String()
 	if !strings.Contains(out, "findings: none") {
 		t.Errorf("want the explicit 'findings: none' marker\n%s", out)
+	}
+	if !strings.Contains(out, "result      clean") {
+		t.Errorf("want result clean\n%s", out)
+	}
+	if strings.Contains(out, "invalid lines") {
+		t.Errorf("must not print an invalid lines section\n%s", out)
