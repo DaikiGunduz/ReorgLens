@@ -83,3 +83,6 @@ type jsonFindings struct {
 func Result(a *chain.Analysis) string {
 	if a.TotalFindings == 0 {
 		return "clean"
+	}
+	return "findings present"
+}
