@@ -98,3 +98,8 @@ func parse(text string, line int) (*Record, error) {
 	}
 	parent, err := requireHex(raw, "parentHash", 64, "a 32 byte hash")
 	if err != nil {
+		return nil, err
+	}
+
+	rec := &Record{
+		Number:     number,
