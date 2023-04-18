@@ -103,3 +103,8 @@ func parse(text string, line int) (*Record, error) {
 
 	rec := &Record{
 		Number:     number,
+		Hash:       hash,
+		ParentHash: parent,
+		Timestamp:  timestamp,
+		Canonical:  true,
+		Line:       line,
