@@ -134,3 +134,8 @@ func TestTextCleanRun(t *testing.T) {
 	}
 	if strings.Contains(out, "invalid lines") {
 		t.Errorf("must not print an invalid lines section\n%s", out)
+	}
+}
+
+func TestTextWithoutDetailStopsAfterTheSummary(t *testing.T) {
+	m := meta()
