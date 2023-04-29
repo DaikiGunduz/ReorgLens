@@ -83,3 +83,6 @@ type TimestampOrder struct {
 
 // ProducerStats tallies the records attributed to one producer address.
 type ProducerStats struct {
+	Producer  string `json:"producer"`
+	Canonical int    `json:"canonical"`
+	Orphaned  int    `json:"orphaned"`
