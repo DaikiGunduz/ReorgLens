@@ -86,3 +86,7 @@ type ProducerStats struct {
 	Producer  string `json:"producer"`
 	Canonical int    `json:"canonical"`
 	Orphaned  int    `json:"orphaned"`
+	Total     int    `json:"total"`
+}
+
+// ParentStats counts the adjacent canonical pairs that could be checked.
