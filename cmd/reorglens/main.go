@@ -90,3 +90,8 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 		fmt.Fprintf(stderr, "reorglens: --fail-on must be any, error or never, got %q\n", *failOn)
 		return 2
 	}
+	from, err := parseUint("from", *fromFlag)
+	if err != nil {
+		fmt.Fprintf(stderr, "reorglens: %v\n", err)
+		return 2
+	}
