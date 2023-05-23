@@ -90,3 +90,6 @@ func Result(a *chain.Analysis) string {
 // Text writes the line oriented report.
 func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 	var b strings.Builder
+
+	fmt.Fprintf(&b, "reorglens %s %s %s\n", m.Version, m.Command, m.Input)
+	b.WriteByte('\n')
