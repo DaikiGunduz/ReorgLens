@@ -160,3 +160,13 @@ func TestOrphanSegmentGroupsConsecutiveNumbers(t *testing.T) {
 	if a.CanonicalRecords != 1 || a.OrphanRecords != 2 {
 		t.Errorf("canonical=%d orphan=%d, want 1 and 2", a.CanonicalRecords, a.OrphanRecords)
 	}
+	if a.Parent.Checked != 0 || a.Parent.Unverified != 0 {
+		t.Errorf("parent = %+v, want no pairs at all", a.Parent)
+	}
+}
+
+func TestParentMismatch(t *testing.T) {
+	lines := []string{
+		blk(100, h(100), h(99), 1000, true),
+		blk(101, h(101), h(55), 1012, true),
+		blk(102, h(102), h(101), 1024, true),
