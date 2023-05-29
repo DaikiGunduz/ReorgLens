@@ -73,3 +73,6 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 		"producers   1",
 		"findings    6  (3 error, 3 warn)",
 		"canonical-conflict",
+		"parent-mismatch",
+		"timestamp-order",
+		"missing",
