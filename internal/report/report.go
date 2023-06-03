@@ -93,3 +93,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 
 	fmt.Fprintf(&b, "reorglens %s %s %s\n", m.Version, m.Command, m.Input)
 	b.WriteByte('\n')
+	for _, line := range summaryLines(a) {
+		b.WriteString(line)
+		b.WriteByte('\n')
