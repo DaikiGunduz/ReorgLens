@@ -97,3 +97,7 @@ func TestBadLines(t *testing.T) {
 		{"missing hash", `{"number":1,"parentHash":"0x` + parent64 + `","timestamp":1}`, `missing field "hash"`},
 		{"missing parent", `{"number":1,"hash":"0x` + fixed64 + `","timestamp":1}`, `missing field "parentHash"`},
 		{"missing timestamp", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `"}`, `missing field "timestamp"`},
+		{"short hash", `{"number":1,"hash":"0xabc","parentHash":"0x` + parent64 + `","timestamp":1}`, "want 64 hex digits after 0x, got 3"},
+		{"hash without prefix", `{"number":1,"hash":"` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1}`, "want a 32 byte hash as 0x prefixed hex"},
+		{"hash with bad digit", `{"number":1,"hash":"0x` + strings.Repeat("z", 64) + `","parentHash":"0x` + parent64 + `","timestamp":1}`, "want hex digits only, found \"z\" at offset 0"},
+		{"timestamp as string", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":"soon"}`, `field "timestamp": want an unsigned integer`},
