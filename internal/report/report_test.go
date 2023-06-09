@@ -76,3 +76,6 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 		"parent-mismatch",
 		"timestamp-order",
 		"missing",
+		"duplicate",
+		"orphan-segment",
+		"invalid lines (1):",
