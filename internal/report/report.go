@@ -96,3 +96,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 	for _, line := range summaryLines(a) {
 		b.WriteString(line)
 		b.WriteByte('\n')
+	}
+
+	if m.Detail {
