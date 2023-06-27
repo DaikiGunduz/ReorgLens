@@ -52,3 +52,5 @@ func TestVersion(t *testing.T) {
 func TestVersionRejectsArguments(t *testing.T) {
 	if code, _, _ := runArgs("version", "extra"); code != 2 {
 		t.Errorf("exit = %d, want 2", code)
+	}
+}
