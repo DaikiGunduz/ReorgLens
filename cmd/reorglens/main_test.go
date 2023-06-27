@@ -99,3 +99,8 @@ func TestAnalyzeReorgedExitsOne(t *testing.T) {
 	if !strings.Contains(out, "findings    5  (2 error, 3 warn)") {
 		t.Errorf("out = %q", out)
 	}
+}
+
+func TestFailOnErrorStillExitsOneForAReorgedCapture(t *testing.T) {
+	if code, _, _ := runArgs("analyze", "--fail-on", "error", reorgSample); code != 1 {
+		t.Errorf("exit = %d, want 1", code)
