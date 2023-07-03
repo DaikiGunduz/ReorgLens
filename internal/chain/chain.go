@@ -90,3 +90,6 @@ type ProducerStats struct {
 }
 
 // ParentStats counts the adjacent canonical pairs that could be checked.
+type ParentStats struct {
+	Checked    int `json:"checked"`
+	Verified   int `json:"verified"`
