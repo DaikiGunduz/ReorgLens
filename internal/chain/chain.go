@@ -166,3 +166,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			from, to, to-from+1, MaxWindow)
 	}
 
+	byNumber := make(map[uint64][]*block.Record)
+	outside := 0
+	for _, r := range records {
+		if r.Number < from || r.Number > to {
+			outside++
+			continue
+		}
+		byNumber[r.Number] = append(byNumber[r.Number], r)
+	}
