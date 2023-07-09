@@ -39,3 +39,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 		return 2
 	}
 	switch args[0] {
+	case "analyze":
+		return cmdAnalyze(args[1:], stdout, stderr)
