@@ -29,3 +29,5 @@ type Record struct {
 	ParentHash string
 	Timestamp  uint64
 	Producer   string
+	Canonical  bool
+	Line       int
