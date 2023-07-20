@@ -24,3 +24,4 @@ func TestReadAllValid(t *testing.T) {
 	if len(bad) != 0 {
 		t.Fatalf("bad lines = %d, want 0", len(bad))
 	}
+	if len(recs) != 1 {
