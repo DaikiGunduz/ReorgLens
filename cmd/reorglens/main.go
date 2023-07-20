@@ -95,3 +95,9 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 		fmt.Fprintf(stderr, "reorglens: %v\n", err)
 		return 2
 	}
+	to, err := parseUint("to", *toFlag)
+	if err != nil {
+		fmt.Fprintf(stderr, "reorglens: %v\n", err)
+		return 2
+	}
+
