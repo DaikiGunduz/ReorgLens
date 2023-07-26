@@ -99,3 +99,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 	}
 
 	if m.Detail {
+		b.WriteByte('\n')
+		if a.TotalFindings == 0 {
+			b.WriteString("findings: none\n")
