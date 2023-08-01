@@ -156,3 +156,10 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 			OrphanSegments:   len(a.Orphans),
 			Missing:          len(a.Missing),
 			Duplicates:       len(a.Duplicates),
+			Conflicts:        len(a.Conflicts),
+		},
+		Parent:    a.Parent,
+		Timestamp: a.Timestamp,
+		Producers: producers,
+		Findings: jsonFindings{
+			Total:   a.TotalFindings,
