@@ -41,3 +41,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 	switch args[0] {
 	case "analyze":
 		return cmdAnalyze(args[1:], stdout, stderr)
+	case "explain":
+		return cmdExplain(args[1:], stdout, stderr)
