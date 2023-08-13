@@ -43,3 +43,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 		return cmdAnalyze(args[1:], stdout, stderr)
 	case "explain":
 		return cmdExplain(args[1:], stdout, stderr)
+	case "version":
+		if len(args) > 1 {
