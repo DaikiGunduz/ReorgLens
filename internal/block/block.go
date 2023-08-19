@@ -31,3 +31,5 @@ type Record struct {
 	Producer   string
 	Canonical  bool
 	Line       int
+}
+
