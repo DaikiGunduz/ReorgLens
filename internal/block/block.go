@@ -33,3 +33,5 @@ type Record struct {
 	Line       int
 }
 
+// BadLine records a line that could not be validated, with enough context to
+// show the reader exactly where the export is broken.
