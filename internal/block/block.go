@@ -35,3 +35,5 @@ type Record struct {
 
 // BadLine records a line that could not be validated, with enough context to
 // show the reader exactly where the export is broken.
+type BadLine struct {
+	Line   int    `json:"line"`
