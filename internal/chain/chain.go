@@ -175,3 +175,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		}
 		byNumber[r.Number] = append(byNumber[r.Number], r)
 	}
+
+	nums := make([]uint64, 0, len(byNumber))
+	for n := range byNumber {
+		nums = append(nums, n)
+	}
+	slices.Sort(nums)
+
+	a := &Analysis{
