@@ -108,3 +108,8 @@ func parse(text string, line int) (*Record, error) {
 		Timestamp:  timestamp,
 		Canonical:  true,
 		Line:       line,
+	}
+
+	if v, ok := raw["canonical"]; ok {
+		var c bool
+		if err := json.Unmarshal(v, &c); err != nil {
