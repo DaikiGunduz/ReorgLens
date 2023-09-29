@@ -139,3 +139,9 @@ func TestTextCleanRun(t *testing.T) {
 
 func TestTextWithoutDetailStopsAfterTheSummary(t *testing.T) {
 	m := meta()
+	m.Detail = false
+	var buf bytes.Buffer
+	if err := Text(&buf, m, fixture()); err != nil {
+		t.Fatalf("Text: %v", err)
+	}
+	out := buf.String()
