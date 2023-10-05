@@ -145,3 +145,9 @@ func TestTextWithoutDetailStopsAfterTheSummary(t *testing.T) {
 		t.Fatalf("Text: %v", err)
 	}
 	out := buf.String()
+	if strings.Contains(out, "result") {
+		t.Errorf("detail off must omit the result line\n%s", out)
+	}
+	if strings.Contains(out, "canonical-conflict") {
+		t.Errorf("detail off must omit the finding list\n%s", out)
+	}
