@@ -47,3 +47,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 		if len(args) > 1 {
 			fmt.Fprintln(stderr, "reorglens: version takes no arguments")
 			return 2
+		}
+		fmt.Fprintf(stdout, "reorglens %s\n", version)
