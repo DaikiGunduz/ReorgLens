@@ -105,3 +105,7 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 		} else {
 			for _, line := range findingLines(a) {
 				b.WriteString(line)
+				b.WriteByte('\n')
+			}
+		}
+		if len(a.BadLines) > 0 {
