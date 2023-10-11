@@ -151,3 +151,8 @@ func TestTextWithoutDetailStopsAfterTheSummary(t *testing.T) {
 	if strings.Contains(out, "canonical-conflict") {
 		t.Errorf("detail off must omit the finding list\n%s", out)
 	}
+	if !strings.Contains(out, "findings    6  (3 error, 3 warn)") {
+		t.Errorf("the summary block must still be there\n%s", out)
+	}
+}
+
