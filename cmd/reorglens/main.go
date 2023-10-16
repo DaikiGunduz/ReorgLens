@@ -101,3 +101,8 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 		return 2
 	}
 
+	path := fs.Arg(0)
+	records, bad, err := read(path)
+	if err != nil {
+		fmt.Fprintf(stderr, "reorglens: %v\n", err)
+		return 2
