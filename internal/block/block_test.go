@@ -101,3 +101,8 @@ func TestBadLines(t *testing.T) {
 		{"hash without prefix", `{"number":1,"hash":"` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1}`, "want a 32 byte hash as 0x prefixed hex"},
 		{"hash with bad digit", `{"number":1,"hash":"0x` + strings.Repeat("z", 64) + `","parentHash":"0x` + parent64 + `","timestamp":1}`, "want hex digits only, found \"z\" at offset 0"},
 		{"timestamp as string", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":"soon"}`, `field "timestamp": want an unsigned integer`},
+		{"timestamp null", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":null}`, `field "timestamp": value is null`},
+		{"number negative", `{"number":-1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1}`, `field "number": want an unsigned integer`},
+		{"producer short", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1,"producer":"0x1234"}`, "want 40 hex digits after 0x, got 4"},
+		{"canonical not a bool", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1,"canonical":"yes"}`, `field "canonical": want true or false`},
+		{"not json", `{this is not json`, "invalid JSON: invalid character"},
