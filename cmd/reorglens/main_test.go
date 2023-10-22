@@ -54,3 +54,5 @@ func TestVersionRejectsArguments(t *testing.T) {
 		t.Errorf("exit = %d, want 2", code)
 	}
 }
+
+func TestHelpExitsZero(t *testing.T) {
