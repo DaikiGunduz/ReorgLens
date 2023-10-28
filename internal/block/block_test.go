@@ -27,3 +27,5 @@ func TestReadAllValid(t *testing.T) {
 	if len(recs) != 1 {
 		t.Fatalf("records = %d, want 1", len(recs))
 	}
+	r := recs[0]
+	if r.Number != 19000100 {
