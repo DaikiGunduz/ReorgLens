@@ -89,3 +89,7 @@ func TestMissingNumber(t *testing.T) {
 	}
 	if a.Parent.Checked != 1 || a.Parent.Unverified != 1 {
 		t.Errorf("parent = %+v, want 1 checked and 1 unverified across the gap", a.Parent)
+	}
+	if a.TotalFindings != 1 || a.WarnFindings != 1 || a.ErrorFindings != 0 {
+		t.Errorf("findings = total %d warn %d error %d, want 1/1/0",
+			a.TotalFindings, a.WarnFindings, a.ErrorFindings)
