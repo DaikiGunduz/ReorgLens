@@ -183,3 +183,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 	slices.Sort(nums)
 
 	a := &Analysis{
+		From:         from,
+		To:           to,
+		Numbers:      to - from + 1,
+		Valid:        len(records) - outside,
+		Invalid:      len(bad),
+		Outside:      outside,
+		Missing:      make([]uint64, 0),
+		Duplicates:   make([]Duplicate, 0),
