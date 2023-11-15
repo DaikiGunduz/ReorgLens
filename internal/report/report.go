@@ -163,3 +163,10 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 		Producers: producers,
 		Findings: jsonFindings{
 			Total:   a.TotalFindings,
+			Error:   a.ErrorFindings,
+			Warn:    a.WarnFindings,
+			ByClass: byClass(a),
+		},
+		Detail:   detail,
+		BadLines: bad,
+		Result:   Result(a),
