@@ -156,3 +156,9 @@ func TestTextWithoutDetailStopsAfterTheSummary(t *testing.T) {
 	}
 }
 
+func TestTextOmitsProducersWhenTheCaptureHasNone(t *testing.T) {
+	a := fixture()
+	a.HasProducer = false
+	var buf bytes.Buffer
+	if err := Text(&buf, meta(), a); err != nil {
+		t.Fatalf("Text: %v", err)
