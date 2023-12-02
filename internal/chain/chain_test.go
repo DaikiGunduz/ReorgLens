@@ -170,3 +170,13 @@ func TestParentMismatch(t *testing.T) {
 		blk(100, h(100), h(99), 1000, true),
 		blk(101, h(101), h(55), 1012, true),
 		blk(102, h(102), h(101), 1024, true),
+	}
+	a, err := analyse(t, lines, Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if len(a.Mismatches) != 1 {
+		t.Fatalf("Mismatches = %+v, want one", a.Mismatches)
+	}
+	m := a.Mismatches[0]
+	if m.Number != 101 || m.ParentNumber != 100 {
