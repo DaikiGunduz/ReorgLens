@@ -93,3 +93,7 @@ type ProducerStats struct {
 type ParentStats struct {
 	Checked    int `json:"checked"`
 	Verified   int `json:"verified"`
+	Mismatch   int `json:"mismatch"`
+	Unverified int `json:"unverified"`
+}
+
