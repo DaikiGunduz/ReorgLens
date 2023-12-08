@@ -106,3 +106,9 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	if err != nil {
 		fmt.Fprintf(stderr, "reorglens: %v\n", err)
 		return 2
+	}
+
+	analysis, err := chain.Analyse(records, bad, chain.Options{From: from, To: to})
+	if err != nil {
+		fmt.Fprintf(stderr, "reorglens: %v\n", err)
+		return 2
