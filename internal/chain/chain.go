@@ -191,3 +191,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		Outside:      outside,
 		Missing:      make([]uint64, 0),
 		Duplicates:   make([]Duplicate, 0),
+		Conflicts:    make([]Conflict, 0),
+		Orphans:      make([]OrphanSegment, 0),
+		Mismatches:   make([]ParentMismatch, 0),
+		Orders:       make([]TimestampOrder, 0),
+		Producers:    make([]ProducerStats, 0),
+		BadLines:     bad,
+	}
+
+	// Numbers inside the window with no record at all.
