@@ -97,3 +97,7 @@ type ParentStats struct {
 	Unverified int `json:"unverified"`
 }
 
+// TimestampStats counts the adjacent canonical pairs and the ordering faults.
+type TimestampStats struct {
+	Checked    int `json:"checked"`
+	OutOfOrder int `json:"outOfOrder"`
