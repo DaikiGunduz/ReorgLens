@@ -180,3 +180,12 @@ func TestParentMismatch(t *testing.T) {
 	}
 	m := a.Mismatches[0]
 	if m.Number != 101 || m.ParentNumber != 100 {
+		t.Errorf("mismatch at %d from %d, want 101 from 100", m.Number, m.ParentNumber)
+	}
+	if m.Expected != h(100) || m.Observed != h(55) {
+		t.Errorf("expected %s observed %s, want %s and %s", m.Expected, m.Observed, h(100), h(55))
+	}
+	if a.Parent.Checked != 2 || a.Parent.Verified != 1 || a.Parent.Mismatch != 1 {
+		t.Errorf("parent = %+v, want 2 checked, 1 verified, 1 mismatch", a.Parent)
+	}
+	if a.ErrorFindings != 1 {
