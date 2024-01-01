@@ -200,3 +200,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 	}
 
 	// Numbers inside the window with no record at all.
+	n := from
+	for {
+		if _, ok := byNumber[n]; !ok {
+			a.Missing = append(a.Missing, n)
+		}
+		if n == to {
+			break
+		}
