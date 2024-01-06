@@ -162,3 +162,9 @@ func TestTextOmitsProducersWhenTheCaptureHasNone(t *testing.T) {
 	var buf bytes.Buffer
 	if err := Text(&buf, meta(), a); err != nil {
 		t.Fatalf("Text: %v", err)
+	}
+	if strings.Contains(buf.String(), "producers") {
+		t.Errorf("must not print a producers line with no producer data\n%s", buf.String())
+	}
+}
+
