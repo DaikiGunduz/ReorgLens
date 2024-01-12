@@ -168,3 +168,8 @@ func TestTextOmitsProducersWhenTheCaptureHasNone(t *testing.T) {
 	}
 }
 
+func TestJSONFieldNamesAreStable(t *testing.T) {
+	var buf bytes.Buffer
+	if err := JSON(&buf, meta(), fixture()); err != nil {
+		t.Fatalf("JSON: %v", err)
+	}
