@@ -106,3 +106,7 @@ func TestBadLines(t *testing.T) {
 		{"producer short", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1,"producer":"0x1234"}`, "want 40 hex digits after 0x, got 4"},
 		{"canonical not a bool", `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 + `","timestamp":1,"canonical":"yes"}`, `field "canonical": want true or false`},
 		{"not json", `{this is not json`, "invalid JSON: invalid character"},
+		{"not an object", `[1,2,3]`, "invalid JSON: want an object"},
+		{"trailing garbage", goodLine + ` x`, "invalid JSON"},
+	}
+	for _, c := range cases {
