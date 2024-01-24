@@ -39,3 +39,5 @@ type BadLine struct {
 	Line   int    `json:"line"`
 	Reason string `json:"reason"`
 	Text   string `json:"text"`
+}
+
