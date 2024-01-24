@@ -208,3 +208,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		if n == to {
 			break
 		}
+		n++
+	}
+
+	// Per number: distinct hashes, canonical pick, orphan coverage.
+	var (
+		chainNums []uint64
+		chainRecs []*block.Record
+		uncovered []uint64
+	)
