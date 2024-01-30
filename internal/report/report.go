@@ -170,3 +170,10 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 		Detail:   detail,
 		BadLines: bad,
 		Result:   Result(a),
+		ExitCode: m.ExitCode,
+	}
+
+	enc := json.NewEncoder(w)
+	enc.SetIndent("", "  ")
+	return enc.Encode(rep)
+}
