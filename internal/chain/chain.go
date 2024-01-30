@@ -101,3 +101,6 @@ type ParentStats struct {
 type TimestampStats struct {
 	Checked    int `json:"checked"`
 	OutOfOrder int `json:"outOfOrder"`
+}
+
+// Analysis is the full result of one run. Every slice is sorted ascending so
