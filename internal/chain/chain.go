@@ -104,3 +104,7 @@ type TimestampStats struct {
 }
 
 // Analysis is the full result of one run. Every slice is sorted ascending so
+// that identical input produces byte identical output.
+type Analysis struct {
+	From    uint64 `json:"from"`
+	To      uint64 `json:"to"`
