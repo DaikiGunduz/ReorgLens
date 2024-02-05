@@ -110,3 +110,7 @@ func TestBadLines(t *testing.T) {
 		{"trailing garbage", goodLine + ` x`, "invalid JSON"},
 	}
 	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			_, bad, err := read(t, c.line+"\n")
+			if err != nil {
+				t.Fatalf("ReadAll: %v", err)
