@@ -189,3 +189,13 @@ func TestParentMismatch(t *testing.T) {
 		t.Errorf("parent = %+v, want 2 checked, 1 verified, 1 mismatch", a.Parent)
 	}
 	if a.ErrorFindings != 1 {
+		t.Errorf("ErrorFindings = %d, want 1", a.ErrorFindings)
+	}
+}
+
+func TestTimestampMustIncrease(t *testing.T) {
+	lines := []string{
+		blk(100, h(100), h(99), 1000, true),
+		blk(101, h(101), h(100), 1000, true),
+	}
+	a, err := analyse(t, lines, Options{})
