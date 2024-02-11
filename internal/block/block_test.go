@@ -29,3 +29,5 @@ func TestReadAllValid(t *testing.T) {
 	}
 	r := recs[0]
 	if r.Number != 19000100 {
+		t.Errorf("Number = %d, want 19000100", r.Number)
+	}
