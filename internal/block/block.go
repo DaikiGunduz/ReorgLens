@@ -113,3 +113,9 @@ func parse(text string, line int) (*Record, error) {
 	if v, ok := raw["canonical"]; ok {
 		var c bool
 		if err := json.Unmarshal(v, &c); err != nil {
+			return nil, fmt.Errorf("field \"canonical\": want true or false, got %s", shorten(string(v)))
+		}
+		rec.Canonical = c
+	}
+	if v, ok := raw["producer"]; ok {
+		var s string
