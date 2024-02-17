@@ -82,3 +82,6 @@ func TestTextReportsEveryFindingClass(t *testing.T) {
 		`line 4: missing field "number"`,
 		"result      findings present",
 		"exit code   1",
+	}
+	for _, w := range want {
+		if !strings.Contains(out, w) {
