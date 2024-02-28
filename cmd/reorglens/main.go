@@ -112,3 +112,8 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	if err != nil {
 		fmt.Fprintf(stderr, "reorglens: %v\n", err)
 		return 2
+	}
+
+	code := exitCode(analysis, *failOn)
+	meta := report.Meta{
+		Version:  version,
