@@ -31,3 +31,4 @@ func TestReadAllValid(t *testing.T) {
 	if r.Number != 19000100 {
 		t.Errorf("Number = %d, want 19000100", r.Number)
 	}
+	if r.Hash != "0x"+fixed64 {
