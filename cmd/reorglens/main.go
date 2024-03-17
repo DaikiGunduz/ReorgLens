@@ -51,3 +51,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 		fmt.Fprintf(stdout, "reorglens %s\n", version)
 		return 0
 	case "help", "--help", "-h":
+		io.WriteString(stdout, usageText)
+		return 0
