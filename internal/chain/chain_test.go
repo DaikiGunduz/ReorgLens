@@ -199,3 +199,12 @@ func TestTimestampMustIncrease(t *testing.T) {
 		blk(101, h(101), h(100), 1000, true),
 	}
 	a, err := analyse(t, lines, Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if len(a.Orders) != 1 {
+		t.Fatalf("Orders = %+v, want one", a.Orders)
+	}
+	o := a.Orders[0]
+	if o.Number != 101 || o.Timestamp != 1000 || o.ParentTimestamp != 1000 {
+		t.Errorf("order = %+v, want the equal pair at 101", o)
