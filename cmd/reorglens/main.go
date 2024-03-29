@@ -53,3 +53,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 	case "help", "--help", "-h":
 		io.WriteString(stdout, usageText)
 		return 0
+	default:
+		fmt.Fprintf(stderr, "reorglens: unknown command %q\n\n", args[0])
