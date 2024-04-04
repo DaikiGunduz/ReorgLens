@@ -63,3 +63,5 @@ func TestHelpExitsZero(t *testing.T) {
 	if !strings.Contains(out, "commands:") {
 		t.Errorf("out = %q", out)
 	}
+}
+
