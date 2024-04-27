@@ -177,3 +177,10 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 	enc.SetIndent("", "  ")
 	return enc.Encode(rep)
 }
+
+func summaryLines(a *chain.Analysis) []string {
+	segment := "segments"
+	if len(a.Orphans) == 1 {
+		segment = "segment"
+	}
+	lines := []string{
