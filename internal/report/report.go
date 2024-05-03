@@ -109,3 +109,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 			}
 		}
 		if len(a.BadLines) > 0 {
+			b.WriteByte('\n')
+			fmt.Fprintf(&b, "invalid lines (%d):\n", len(a.BadLines))
+			for _, bad := range a.BadLines {
