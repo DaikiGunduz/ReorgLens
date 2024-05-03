@@ -118,3 +118,8 @@ func TestFailOnErrorIgnoresWarnings(t *testing.T) {
 func TestFailOnNeverAlwaysExitsZero(t *testing.T) {
 	if code, _, _ := runArgs("analyze", "--fail-on", "never", reorgSample); code != 0 {
 		t.Errorf("exit = %d, want 0", code)
+	}
+}
+
+func TestAnalyzeRejectsUnknownFormat(t *testing.T) {
+	code, _, errOut := runArgs("analyze", "--format", "yaml", cleanSample)
