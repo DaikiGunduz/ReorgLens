@@ -108,3 +108,6 @@ type TimestampStats struct {
 type Analysis struct {
 	From    uint64 `json:"from"`
 	To      uint64 `json:"to"`
+	Numbers uint64 `json:"numbers"`
+
+	Valid   int `json:"valid"`
