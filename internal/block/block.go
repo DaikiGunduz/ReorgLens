@@ -119,3 +119,8 @@ func parse(text string, line int) (*Record, error) {
 	}
 	if v, ok := raw["producer"]; ok {
 		var s string
+		if err := json.Unmarshal(v, &s); err != nil {
+			return nil, fmt.Errorf("field \"producer\": want a string, got %s", shorten(string(v)))
+		}
+		addr, err := hexBody(s, 40, "a 20 byte address")
+		if err != nil {
