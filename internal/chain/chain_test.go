@@ -208,3 +208,13 @@ func TestTimestampMustIncrease(t *testing.T) {
 	o := a.Orders[0]
 	if o.Number != 101 || o.Timestamp != 1000 || o.ParentTimestamp != 1000 {
 		t.Errorf("order = %+v, want the equal pair at 101", o)
+	}
+	if a.Timestamp.Checked != 1 || a.Timestamp.OutOfOrder != 1 {
+		t.Errorf("timestamp = %+v, want 1 checked and 1 out of order", a.Timestamp)
+	}
+}
+
+func TestWindowNarrowingCountsRecordsOutside(t *testing.T) {
+	lines := []string{
+		blk(100, h(100), h(99), 1000, true),
+		blk(101, h(101), h(100), 1012, true),
