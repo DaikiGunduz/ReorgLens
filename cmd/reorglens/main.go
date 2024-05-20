@@ -117,3 +117,8 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	code := exitCode(analysis, *failOn)
 	meta := report.Meta{
 		Version:  version,
+		Command:  "analyze",
+		Input:    path,
+		Detail:   true,
+		ExitCode: code,
+	}
