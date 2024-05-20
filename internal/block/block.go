@@ -41,3 +41,5 @@ type BadLine struct {
 	Text   string `json:"text"`
 }
 
+// ReadAll reads newline delimited JSON records from r. Blank lines are
+// skipped. Every other line becomes either a *Record or a BadLine.
