@@ -173,3 +173,9 @@ func TestJSONFieldNamesAreStable(t *testing.T) {
 	if err := JSON(&buf, meta(), fixture()); err != nil {
 		t.Fatalf("JSON: %v", err)
 	}
+	var got map[string]json.RawMessage
+	if err := json.Unmarshal(buf.Bytes(), &got); err != nil {
+		t.Fatalf("output is not valid JSON: %v", err)
+	}
+	want := []string{
+		"tool", "version", "command", "input", "window", "records", "chain",
