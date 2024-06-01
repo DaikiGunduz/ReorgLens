@@ -217,3 +217,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		chainRecs []*block.Record
 		uncovered []uint64
 	)
+	for _, num := range nums {
+		recs := byNumber[num]
+
+		hashes := distinct(recs, func(r *block.Record) string { return r.Hash })
+		if len(hashes) > 1 {
+			a.Duplicates = append(a.Duplicates, Duplicate{
+				Number: num, Records: len(recs), Hashes: hashes,
+			})
