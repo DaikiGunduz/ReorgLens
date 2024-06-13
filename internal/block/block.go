@@ -124,3 +124,8 @@ func parse(text string, line int) (*Record, error) {
 		}
 		addr, err := hexBody(s, 40, "a 20 byte address")
 		if err != nil {
+			return nil, fmt.Errorf("field \"producer\": %v", err)
+		}
+		rec.Producer = "0x" + strings.ToLower(addr)
+	}
+	return rec, nil
