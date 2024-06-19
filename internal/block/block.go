@@ -129,3 +129,9 @@ func parse(text string, line int) (*Record, error) {
 		rec.Producer = "0x" + strings.ToLower(addr)
 	}
 	return rec, nil
+}
+
+func requireUint(raw map[string]json.RawMessage, key string) (uint64, error) {
+	v, ok := raw[key]
+	if !ok {
+		return 0, fmt.Errorf("missing field %q", key)
