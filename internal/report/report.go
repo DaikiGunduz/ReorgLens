@@ -112,3 +112,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 			b.WriteByte('\n')
 			fmt.Fprintf(&b, "invalid lines (%d):\n", len(a.BadLines))
 			for _, bad := range a.BadLines {
+				fmt.Fprintf(&b, "  line %d: %s  %s\n", bad.Line, bad.Reason, bad.Text)
+			}
+		}
