@@ -111,3 +111,7 @@ type Analysis struct {
 	Numbers uint64 `json:"numbers"`
 
 	Valid   int `json:"valid"`
+	Invalid int `json:"invalid"`
+	Outside int `json:"outside"`
+
+	CanonicalRecords int `json:"canonicalRecords"`
