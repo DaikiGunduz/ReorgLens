@@ -184,3 +184,10 @@ func summaryLines(a *chain.Analysis) []string {
 		segment = "segment"
 	}
 	lines := []string{
+		fmt.Sprintf("%-12s%d..%d  (%d numbers)", "window", a.From, a.To, a.Numbers),
+		fmt.Sprintf("%-12s%d valid  %d invalid  %d outside", "records", a.Valid, a.Invalid, a.Outside),
+		fmt.Sprintf("%-12s%d records", "canonical", a.CanonicalRecords),
+		fmt.Sprintf("%-12s%d records in %d %s", "orphaned", a.OrphanRecords, len(a.Orphans), segment),
+		fmt.Sprintf("%-12s%d checked  %d mismatch  %d unverified", "parent", a.Parent.Checked, a.Parent.Mismatch, a.Parent.Unverified),
+		fmt.Sprintf("%-12s%d checked  %d out of order", "timestamp", a.Timestamp.Checked, a.Timestamp.OutOfOrder),
+	}
