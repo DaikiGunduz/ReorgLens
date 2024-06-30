@@ -135,3 +135,8 @@ func requireUint(raw map[string]json.RawMessage, key string) (uint64, error) {
 	v, ok := raw[key]
 	if !ok {
 		return 0, fmt.Errorf("missing field %q", key)
+	}
+	if isNull(v) {
+		return 0, fmt.Errorf("field %q: value is null", key)
+	}
+	var n uint64
