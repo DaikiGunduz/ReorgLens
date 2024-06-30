@@ -65,3 +65,5 @@ func TestHelpExitsZero(t *testing.T) {
 	}
 }
 
+func TestExplain(t *testing.T) {
+	code, out, _ := runArgs("explain")
