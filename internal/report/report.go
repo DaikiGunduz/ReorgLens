@@ -191,3 +191,11 @@ func summaryLines(a *chain.Analysis) []string {
 		fmt.Sprintf("%-12s%d checked  %d mismatch  %d unverified", "parent", a.Parent.Checked, a.Parent.Mismatch, a.Parent.Unverified),
 		fmt.Sprintf("%-12s%d checked  %d out of order", "timestamp", a.Timestamp.Checked, a.Timestamp.OutOfOrder),
 	}
+	if a.HasProducer {
+		lines = append(lines, fmt.Sprintf("%-12s%d", "producers", len(a.Producers)))
+	}
+	lines = append(lines,
+		fmt.Sprintf("%-12s%d  (%d error, %d warn)", "findings", a.TotalFindings, a.ErrorFindings, a.WarnFindings))
+	return lines
+}
+
