@@ -115,3 +115,6 @@ type Analysis struct {
 	Outside int `json:"outside"`
 
 	CanonicalRecords int `json:"canonicalRecords"`
+	OrphanRecords    int `json:"orphanRecords"`
+
+	Parent    ParentStats    `json:"parent"`
