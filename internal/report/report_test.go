@@ -179,3 +179,9 @@ func TestJSONFieldNamesAreStable(t *testing.T) {
 	}
 	want := []string{
 		"tool", "version", "command", "input", "window", "records", "chain",
+		"parent", "timestamp", "producers", "findings", "detail", "badLines",
+		"result", "exitCode",
+	}
+	for _, k := range want {
+		if _, ok := got[k]; !ok {
+			t.Errorf("missing top level field %q", k)
