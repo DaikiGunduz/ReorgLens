@@ -225,3 +225,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			a.Duplicates = append(a.Duplicates, Duplicate{
 				Number: num, Records: len(recs), Hashes: hashes,
 			})
+		}
+
+		var canon []*block.Record
+		for _, r := range recs {
+			if r.Canonical {
+				canon = append(canon, r)
+			} else {
+				a.OrphanRecords++
+			}
