@@ -100,3 +100,6 @@ func TestDuplicateNumber(t *testing.T) {
 	lines := cleanChain()
 	lines = append(lines, blk(101, h(201), h(100), 1012, false))
 	a, err := analyse(t, lines, Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
