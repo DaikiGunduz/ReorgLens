@@ -96,3 +96,6 @@ func TestTextErrorsAreListedBeforeWarnings(t *testing.T) {
 		t.Fatalf("Text: %v", err)
 	}
 	out := buf.String()
+	lastError := strings.LastIndex(out, "error ")
+	firstWarn := strings.Index(out, "warn   ")
+	if lastError < 0 || firstWarn < 0 {
