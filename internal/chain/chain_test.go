@@ -103,3 +103,7 @@ func TestDuplicateNumber(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Analyse: %v", err)
 	}
+	if len(a.Duplicates) != 1 {
+		t.Fatalf("Duplicates = %v, want one", a.Duplicates)
+	}
+	d := a.Duplicates[0]
