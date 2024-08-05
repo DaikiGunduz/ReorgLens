@@ -199,3 +199,10 @@ func summaryLines(a *chain.Analysis) []string {
 	return lines
 }
 
+// findingLines keeps a fixed order: the three error classes first, then the
+// three warn classes, each sorted by number because Analyse already sorts.
+func findingLines(a *chain.Analysis) []string {
+	lines := make([]string, 0, a.TotalFindings)
+	for _, c := range a.Conflicts {
+		lines = append(lines, fmt.Sprintf("%-5s  %-18s number=%d canonical=%d hashes=%s",
+			chain.SeverityError, chain.ClassCanonicalConflict,
