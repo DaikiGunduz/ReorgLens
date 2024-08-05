@@ -67,3 +67,5 @@ func TestHelpExitsZero(t *testing.T) {
 
 func TestExplain(t *testing.T) {
 	code, out, _ := runArgs("explain")
+	if code != 0 {
+		t.Errorf("exit = %d, want 0", code)
