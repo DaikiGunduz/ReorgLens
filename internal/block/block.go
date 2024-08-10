@@ -140,3 +140,8 @@ func requireUint(raw map[string]json.RawMessage, key string) (uint64, error) {
 		return 0, fmt.Errorf("field %q: value is null", key)
 	}
 	var n uint64
+	if err := json.Unmarshal(v, &n); err != nil {
+		return 0, fmt.Errorf("field %q: want an unsigned integer, got %s", key, shorten(string(v)))
+	}
+	return n, nil
+}
