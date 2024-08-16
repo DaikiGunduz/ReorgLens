@@ -72,3 +72,5 @@ func TestExplain(t *testing.T) {
 	}
 	if !strings.Contains(out, "parent-mismatch") {
 		t.Errorf("out = %q", out)
+	}
+}
