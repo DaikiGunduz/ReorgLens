@@ -114,3 +114,8 @@ func TestBadLines(t *testing.T) {
 			_, bad, err := read(t, c.line+"\n")
 			if err != nil {
 				t.Fatalf("ReadAll: %v", err)
+			}
+			if len(bad) != 1 {
+				t.Fatalf("bad lines = %d, want 1", len(bad))
+			}
+			if !strings.Contains(bad[0].Reason, c.want) {
