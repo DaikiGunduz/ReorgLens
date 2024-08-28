@@ -185,3 +185,8 @@ func TestJSONFieldNamesAreStable(t *testing.T) {
 	for _, k := range want {
 		if _, ok := got[k]; !ok {
 			t.Errorf("missing top level field %q", k)
+		}
+	}
+	if len(got) != len(want) {
+		t.Errorf("got %d top level fields, want %d", len(got), len(want))
+	}
