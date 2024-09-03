@@ -123,3 +123,8 @@ func TestFailOnNeverAlwaysExitsZero(t *testing.T) {
 
 func TestAnalyzeRejectsUnknownFormat(t *testing.T) {
 	code, _, errOut := runArgs("analyze", "--format", "yaml", cleanSample)
+	if code != 2 {
+		t.Errorf("exit = %d, want 2", code)
+	}
+	if !strings.Contains(errOut, "--format must be text or json") {
+		t.Errorf("stderr = %q", errOut)
