@@ -115,3 +115,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 				fmt.Fprintf(&b, "  line %d: %s  %s\n", bad.Line, bad.Reason, bad.Text)
 			}
 		}
+		b.WriteByte('\n')
+		fmt.Fprintf(&b, "%-12s%s\n", "result", Result(a))
+		fmt.Fprintf(&b, "%-12s%d\n", "exit code", m.ExitCode)
