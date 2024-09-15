@@ -74,3 +74,5 @@ func TestExplain(t *testing.T) {
 		t.Errorf("out = %q", out)
 	}
 }
+
+func TestExplainRejectsArguments(t *testing.T) {
