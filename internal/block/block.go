@@ -44,3 +44,5 @@ type BadLine struct {
 // ReadAll reads newline delimited JSON records from r. Blank lines are
 // skipped. Every other line becomes either a *Record or a BadLine.
 func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
+	sc := bufio.NewScanner(r)
+	sc.Buffer(make([]byte, 0, 64*1024), MaxLineBytes)
