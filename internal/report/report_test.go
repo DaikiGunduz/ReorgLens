@@ -190,3 +190,9 @@ func TestJSONFieldNamesAreStable(t *testing.T) {
 	if len(got) != len(want) {
 		t.Errorf("got %d top level fields, want %d", len(got), len(want))
 	}
+}
+
+func TestJSONDetailOrderIsFixed(t *testing.T) {
+	var buf bytes.Buffer
+	if err := JSON(&buf, meta(), fixture()); err != nil {
+		t.Fatalf("JSON: %v", err)
