@@ -34,3 +34,5 @@ func TestReadAllValid(t *testing.T) {
 	if r.Hash != "0x"+fixed64 {
 		t.Errorf("Hash = %q", r.Hash)
 	}
+	if r.ParentHash != "0x"+parent64 {
+		t.Errorf("ParentHash = %q", r.ParentHash)
