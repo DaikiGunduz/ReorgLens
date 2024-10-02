@@ -145,3 +145,8 @@ func requireUint(raw map[string]json.RawMessage, key string) (uint64, error) {
 	}
 	return n, nil
 }
+
+func requireHex(raw map[string]json.RawMessage, key string, digits int, what string) (string, error) {
+	v, ok := raw[key]
+	if !ok {
+		return "", fmt.Errorf("missing field %q", key)
