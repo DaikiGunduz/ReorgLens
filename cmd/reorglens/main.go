@@ -122,3 +122,9 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 		Detail:   true,
 		ExitCode: code,
 	}
+	if err := write(stdout, *format, meta, analysis); err != nil {
+		fmt.Fprintf(stderr, "reorglens: %v\n", err)
+		return 2
+	}
+	return code
+}
