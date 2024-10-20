@@ -128,3 +128,8 @@ func TestAnalyzeRejectsUnknownFormat(t *testing.T) {
 	}
 	if !strings.Contains(errOut, "--format must be text or json") {
 		t.Errorf("stderr = %q", errOut)
+	}
+}
+
+func TestAnalyzeRejectsUnknownFailOn(t *testing.T) {
+	code, _, errOut := runArgs("analyze", "--fail-on", "maybe", cleanSample)
