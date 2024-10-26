@@ -234,3 +234,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			} else {
 				a.OrphanRecords++
 			}
+		}
+		a.CanonicalRecords += len(canon)
+
+		if len(canon) > 1 {
+			a.Conflicts = append(a.Conflicts, Conflict{
+				Number: num,
+				Records: len(canon),
+				Hashes: distinct(canon, func(r *block.Record) string { return r.Hash }),
