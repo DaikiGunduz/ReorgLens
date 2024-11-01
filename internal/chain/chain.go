@@ -242,3 +242,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 				Number: num,
 				Records: len(canon),
 				Hashes: distinct(canon, func(r *block.Record) string { return r.Hash }),
+			})
+		}
+		if len(canon) == 0 {
+			uncovered = append(uncovered, num)
+			continue
+		}
+
+		// A number with several canonical records still has to yield one
