@@ -119,3 +119,7 @@ func TestBadLines(t *testing.T) {
 				t.Fatalf("bad lines = %d, want 1", len(bad))
 			}
 			if !strings.Contains(bad[0].Reason, c.want) {
+				t.Errorf("Reason = %q, want it to contain %q", bad[0].Reason, c.want)
+			}
+			if bad[0].Line != 1 {
+				t.Errorf("Line = %d, want 1", bad[0].Line)
