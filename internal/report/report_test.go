@@ -99,3 +99,6 @@ func TestTextErrorsAreListedBeforeWarnings(t *testing.T) {
 	lastError := strings.LastIndex(out, "error ")
 	firstWarn := strings.Index(out, "warn   ")
 	if lastError < 0 || firstWarn < 0 {
+		t.Fatalf("could not find the severity markers\n%s", out)
+	}
+	if lastError > firstWarn {
