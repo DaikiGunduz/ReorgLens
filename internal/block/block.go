@@ -46,3 +46,5 @@ type BadLine struct {
 func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 	sc := bufio.NewScanner(r)
 	sc.Buffer(make([]byte, 0, 64*1024), MaxLineBytes)
+
+	var (
