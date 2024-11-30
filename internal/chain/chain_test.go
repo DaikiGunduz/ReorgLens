@@ -218,3 +218,12 @@ func TestWindowNarrowingCountsRecordsOutside(t *testing.T) {
 	lines := []string{
 		blk(100, h(100), h(99), 1000, true),
 		blk(101, h(101), h(100), 1012, true),
+		blk(102, h(102), h(101), 1024, true),
+		blk(103, h(103), h(102), 1036, true),
+		blk(104, h(104), h(103), 1048, true),
+	}
+	from, to := uint64(101), uint64(103)
+	a, err := analyse(t, lines, Options{From: &from, To: &to})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
