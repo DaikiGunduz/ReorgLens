@@ -133,3 +133,7 @@ func TestAnalyzeRejectsUnknownFormat(t *testing.T) {
 
 func TestAnalyzeRejectsUnknownFailOn(t *testing.T) {
 	code, _, errOut := runArgs("analyze", "--fail-on", "maybe", cleanSample)
+	if code != 2 {
+		t.Errorf("exit = %d, want 2", code)
+	}
+	if !strings.Contains(errOut, "--fail-on must be any, error or never") {
