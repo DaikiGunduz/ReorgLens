@@ -206,3 +206,10 @@ func findingLines(a *chain.Analysis) []string {
 	for _, c := range a.Conflicts {
 		lines = append(lines, fmt.Sprintf("%-5s  %-18s number=%d canonical=%d hashes=%s",
 			chain.SeverityError, chain.ClassCanonicalConflict,
+			c.Number, c.Records, strings.Join(c.Hashes, ",")))
+	}
+	for _, m := range a.Mismatches {
+		lines = append(lines, fmt.Sprintf("%-5s  %-18s number=%d parent=%d expected=%s observed=%s",
+			chain.SeverityError, chain.ClassParentMismatch,
+			m.Number, m.ParentNumber, m.Expected, m.Observed))
+	}
