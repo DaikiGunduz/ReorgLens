@@ -123,3 +123,7 @@ func TestBadLines(t *testing.T) {
 			}
 			if bad[0].Line != 1 {
 				t.Errorf("Line = %d, want 1", bad[0].Line)
+			}
+		})
+	}
+}
