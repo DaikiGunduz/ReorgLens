@@ -118,3 +118,7 @@ type Analysis struct {
 	OrphanRecords    int `json:"orphanRecords"`
 
 	Parent    ParentStats    `json:"parent"`
+	Timestamp TimestampStats `json:"timestamp"`
+
+	Missing    []uint64           `json:"missing"`
+	Duplicates []Duplicate        `json:"duplicates"`
