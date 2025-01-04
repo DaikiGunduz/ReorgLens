@@ -78,3 +78,5 @@ func TestExplain(t *testing.T) {
 func TestExplainRejectsArguments(t *testing.T) {
 	if code, _, _ := runArgs("explain", "extra"); code != 2 {
 		t.Errorf("exit = %d, want 2", code)
+	}
+}
