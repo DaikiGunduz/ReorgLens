@@ -227,3 +227,13 @@ func TestWindowNarrowingCountsRecordsOutside(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Analyse: %v", err)
 	}
+	if a.From != 101 || a.To != 103 || a.Numbers != 3 {
+		t.Errorf("window = %d..%d (%d), want 101..103 (3)", a.From, a.To, a.Numbers)
+	}
+	if a.Valid != 3 || a.Outside != 2 {
+		t.Errorf("valid=%d outside=%d, want 3 and 2", a.Valid, a.Outside)
+	}
+	if a.TotalFindings != 0 {
+		t.Errorf("TotalFindings = %d, want 0", a.TotalFindings)
+	}
+}
