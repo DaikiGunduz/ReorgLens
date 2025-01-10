@@ -80,3 +80,5 @@ func TestExplainRejectsArguments(t *testing.T) {
 		t.Errorf("exit = %d, want 2", code)
 	}
 }
+
+func TestAnalyzeCleanExitsZero(t *testing.T) {
