@@ -237,3 +237,13 @@ func TestWindowNarrowingCountsRecordsOutside(t *testing.T) {
 		t.Errorf("TotalFindings = %d, want 0", a.TotalFindings)
 	}
 }
+
+func TestWindowWideningReportsTheEdgesAsMissing(t *testing.T) {
+	from, to := uint64(98), uint64(105)
+	a, err := analyse(t, cleanChain(), Options{From: &from, To: &to})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if a.Numbers != 8 {
+		t.Errorf("Numbers = %d, want 8", a.Numbers)
+	}
