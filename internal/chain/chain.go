@@ -250,3 +250,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		}
 
 		// A number with several canonical records still has to yield one
+		// chain entry. Lowest hash keeps the pick independent of input order.
+		pick := canon[0]
+		for _, c := range canon[1:] {
+			if c.Hash < pick.Hash {
+				pick = c
+			}
+		}
+		chainNums = append(chainNums, num)
+		chainRecs = append(chainRecs, pick)
