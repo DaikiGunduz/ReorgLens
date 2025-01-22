@@ -102,3 +102,6 @@ func TestTextErrorsAreListedBeforeWarnings(t *testing.T) {
 		t.Fatalf("could not find the severity markers\n%s", out)
 	}
 	if lastError > firstWarn {
+		t.Errorf("a warning is listed before an error\n%s", out)
+	}
+}
