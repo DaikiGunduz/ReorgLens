@@ -85,3 +85,5 @@ func TestAnalyzeCleanExitsZero(t *testing.T) {
 	code, out, errOut := runArgs("analyze", cleanSample)
 	if code != 0 {
 		t.Errorf("exit = %d, want 0, stderr %q", code, errOut)
+	}
+	if !strings.Contains(out, "result      clean") {
