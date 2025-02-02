@@ -196,3 +196,9 @@ func TestJSONDetailOrderIsFixed(t *testing.T) {
 	var buf bytes.Buffer
 	if err := JSON(&buf, meta(), fixture()); err != nil {
 		t.Fatalf("JSON: %v", err)
+	}
+	var rep struct {
+		Detail []Finding `json:"detail"`
+	}
+	if err := json.Unmarshal(buf.Bytes(), &rep); err != nil {
+		t.Fatalf("decode: %v", err)
