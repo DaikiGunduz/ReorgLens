@@ -121,3 +121,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 	}
 
 	_, err := io.WriteString(w, b.String())
+	return err
+}
+
