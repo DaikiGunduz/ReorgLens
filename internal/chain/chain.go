@@ -122,3 +122,6 @@ type Analysis struct {
 
 	Missing    []uint64           `json:"missing"`
 	Duplicates []Duplicate        `json:"duplicates"`
+	Conflicts  []Conflict         `json:"conflicts"`
+	Orphans    []OrphanSegment    `json:"orphanSegments"`
+	Mismatches []ParentMismatch   `json:"parentMismatches"`
