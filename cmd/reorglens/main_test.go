@@ -137,3 +137,8 @@ func TestAnalyzeRejectsUnknownFailOn(t *testing.T) {
 		t.Errorf("exit = %d, want 2", code)
 	}
 	if !strings.Contains(errOut, "--fail-on must be any, error or never") {
+		t.Errorf("stderr = %q", errOut)
+	}
+}
+
+func TestAnalyzeRejectsNonNumericRange(t *testing.T) {
