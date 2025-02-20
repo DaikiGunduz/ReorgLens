@@ -89,3 +89,5 @@ func TestAnalyzeCleanExitsZero(t *testing.T) {
 	if !strings.Contains(out, "result      clean") {
 		t.Errorf("out = %q", out)
 	}
+}
+
