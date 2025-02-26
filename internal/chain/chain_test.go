@@ -247,3 +247,12 @@ func TestWindowWideningReportsTheEdgesAsMissing(t *testing.T) {
 	if a.Numbers != 8 {
 		t.Errorf("Numbers = %d, want 8", a.Numbers)
 	}
+	want := []uint64{98, 99, 104, 105}
+	if len(a.Missing) != len(want) {
+		t.Fatalf("Missing = %v, want %v", a.Missing, want)
+	}
+	for i := range want {
+		if a.Missing[i] != want[i] {
+			t.Errorf("Missing[%d] = %d, want %d", i, a.Missing[i], want[i])
+		}
+	}
