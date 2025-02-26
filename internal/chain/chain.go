@@ -125,3 +125,7 @@ type Analysis struct {
 	Conflicts  []Conflict         `json:"conflicts"`
 	Orphans    []OrphanSegment    `json:"orphanSegments"`
 	Mismatches []ParentMismatch   `json:"parentMismatches"`
+	Orders     []TimestampOrder   `json:"timestampOrders"`
+	Producers  []ProducerStats    `json:"producers"`
+	HasProducer bool              `json:"hasProducer"`
+
