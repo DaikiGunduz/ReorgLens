@@ -57,3 +57,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 		fmt.Fprintf(stderr, "reorglens: unknown command %q\n\n", args[0])
 		io.WriteString(stderr, usageText)
 		return 2
+	}
+}
