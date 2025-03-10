@@ -142,3 +142,8 @@ func TestAnalyzeRejectsUnknownFailOn(t *testing.T) {
 }
 
 func TestAnalyzeRejectsNonNumericRange(t *testing.T) {
+	code, _, errOut := runArgs("analyze", "--from", "twelve", cleanSample)
+	if code != 2 {
+		t.Errorf("exit = %d, want 2", code)
+	}
+	if !strings.Contains(errOut, "--from must be an unsigned integer") {
