@@ -267,3 +267,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		count := len(byNumber[uncovered[i]])
 		for j < len(uncovered) && uncovered[j] == uncovered[j-1]+1 {
 			count += len(byNumber[uncovered[j]])
+			j++
+		}
+		a.Orphans = append(a.Orphans, OrphanSegment{
+			From: uncovered[i], To: uncovered[j-1], Records: count,
+		})
+		i = j
+	}
+
+	// Parent links and timestamp order across adjacent canonical pairs.
