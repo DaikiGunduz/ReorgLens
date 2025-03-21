@@ -91,3 +91,5 @@ func TestAnalyzeCleanExitsZero(t *testing.T) {
 	}
 }
 
+func TestAnalyzeReorgedExitsOne(t *testing.T) {
+	code, out, errOut := runArgs("analyze", reorgSample)
