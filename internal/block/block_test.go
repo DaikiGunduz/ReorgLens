@@ -127,3 +127,8 @@ func TestBadLines(t *testing.T) {
 		})
 	}
 }
+
+func TestBadLineKeepsLineNumbers(t *testing.T) {
+	input := "nope\n" + goodLine + "\nalso nope\n"
+	_, bad, err := read(t, input)
+	if err != nil {
