@@ -150,3 +150,9 @@ func requireHex(raw map[string]json.RawMessage, key string, digits int, what str
 	v, ok := raw[key]
 	if !ok {
 		return "", fmt.Errorf("missing field %q", key)
+	}
+	var s string
+	if err := json.Unmarshal(v, &s); err != nil {
+		return "", fmt.Errorf("field %q: want a string, got %s", key, shorten(string(v)))
+	}
+	body, err := hexBody(s, digits, what)
