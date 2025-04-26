@@ -147,3 +147,8 @@ func TestAnalyzeRejectsNonNumericRange(t *testing.T) {
 		t.Errorf("exit = %d, want 2", code)
 	}
 	if !strings.Contains(errOut, "--from must be an unsigned integer") {
+		t.Errorf("stderr = %q", errOut)
+	}
+}
+
+func TestAnalyzeMissingFileExitsTwo(t *testing.T) {
