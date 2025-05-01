@@ -213,3 +213,10 @@ func findingLines(a *chain.Analysis) []string {
 			chain.SeverityError, chain.ClassParentMismatch,
 			m.Number, m.ParentNumber, m.Expected, m.Observed))
 	}
+	for _, t := range a.Orders {
+		lines = append(lines, fmt.Sprintf("%-5s  %-18s number=%d parent=%d timestamp=%d parentTimestamp=%d",
+			chain.SeverityError, chain.ClassTimestampOrder,
+			t.Number, t.ParentNumber, t.Timestamp, t.ParentTimestamp))
+	}
+	for _, n := range a.Missing {
+		lines = append(lines, fmt.Sprintf("%-5s  %-18s number=%d",
