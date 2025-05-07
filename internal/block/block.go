@@ -48,3 +48,5 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 	sc.Buffer(make([]byte, 0, 64*1024), MaxLineBytes)
 
 	var (
+		records []*Record
+		bad     []BadLine
