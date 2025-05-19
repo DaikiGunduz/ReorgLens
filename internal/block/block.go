@@ -50,3 +50,5 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 	var (
 		records []*Record
 		bad     []BadLine
+		n       int
+	)
