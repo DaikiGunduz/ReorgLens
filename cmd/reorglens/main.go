@@ -128,3 +128,8 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	}
 	return code
 }
+
+func cmdExplain(args []string, stdout, stderr io.Writer) int {
+	if len(args) > 0 {
+		fmt.Fprintln(stderr, "reorglens: explain takes no arguments")
+		return 2
