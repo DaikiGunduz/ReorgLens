@@ -128,3 +128,6 @@ func Text(w io.Writer, m Meta, a *chain.Analysis) error {
 func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 	producers := a.Producers
 	if producers == nil {
+		producers = make([]chain.ProducerStats, 0)
+	}
+	detail := make([]Finding, 0)
