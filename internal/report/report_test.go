@@ -108,3 +108,6 @@ func TestTextErrorsAreListedBeforeWarnings(t *testing.T) {
 
 func TestTextCleanRun(t *testing.T) {
 	a := fixture()
+	a.Missing = nil
+	a.Duplicates = nil
+	a.Conflicts = nil
