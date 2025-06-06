@@ -136,3 +136,7 @@ func TestBadLineKeepsLineNumbers(t *testing.T) {
 	}
 	if len(bad) != 2 {
 		t.Fatalf("bad lines = %d, want 2", len(bad))
+	}
+	if bad[0].Line != 1 || bad[1].Line != 3 {
+		t.Errorf("lines = %d, %d, want 1 and 3", bad[0].Line, bad[1].Line)
+	}
