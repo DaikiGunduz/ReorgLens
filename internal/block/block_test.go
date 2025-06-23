@@ -140,3 +140,8 @@ func TestBadLineKeepsLineNumbers(t *testing.T) {
 	if bad[0].Line != 1 || bad[1].Line != 3 {
 		t.Errorf("lines = %d, %d, want 1 and 3", bad[0].Line, bad[1].Line)
 	}
+}
+
+func TestUnknownFieldsIgnored(t *testing.T) {
+	line := `{"number":1,"hash":"0x` + fixed64 + `","parentHash":"0x` + parent64 +
+		`","timestamp":1,"extra":"ignored"}`
