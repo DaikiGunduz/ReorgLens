@@ -202,3 +202,8 @@ func TestJSONDetailOrderIsFixed(t *testing.T) {
 	}
 	if err := json.Unmarshal(buf.Bytes(), &rep); err != nil {
 		t.Fatalf("decode: %v", err)
+	}
+	want := []string{
+		chain.ClassCanonicalConflict,
+		chain.ClassParentMismatch,
+		chain.ClassTimestampOrder,
