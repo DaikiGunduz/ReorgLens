@@ -276,3 +276,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 	}
 
 	// Parent links and timestamp order across adjacent canonical pairs.
+	for i := 1; i < len(chainNums); i++ {
+		aNum, bNum := chainNums[i-1], chainNums[i]
+		parent, child := chainRecs[i-1], chainRecs[i]
+
+		if bNum != aNum+1 {
+			a.Parent.Unverified++
+			continue
+		}
