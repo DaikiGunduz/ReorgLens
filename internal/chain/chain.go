@@ -284,3 +284,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			a.Parent.Unverified++
 			continue
 		}
+		a.Parent.Checked++
+		if child.ParentHash == parent.Hash {
+			a.Parent.Verified++
+		} else {
+			a.Parent.Mismatch++
+			a.Mismatches = append(a.Mismatches, ParentMismatch{
+				Number: bNum, ParentNumber: aNum,
+				Expected: parent.Hash, Observed: child.ParentHash,
+			})
