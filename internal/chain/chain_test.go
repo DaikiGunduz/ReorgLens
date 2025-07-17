@@ -256,3 +256,13 @@ func TestWindowWideningReportsTheEdgesAsMissing(t *testing.T) {
 			t.Errorf("Missing[%d] = %d, want %d", i, a.Missing[i], want[i])
 		}
 	}
+}
+
+func TestEmptyWindowIsAnError(t *testing.T) {
+	from, to := uint64(500), uint64(100)
+	if _, err := analyse(t, cleanChain(), Options{From: &from, To: &to}); err == nil {
+		t.Fatal("want an error when from is greater than to")
+	}
+}
+
+func TestNoRecordsIsAnError(t *testing.T) {
