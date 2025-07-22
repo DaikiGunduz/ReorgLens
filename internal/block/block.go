@@ -156,3 +156,8 @@ func requireHex(raw map[string]json.RawMessage, key string, digits int, what str
 		return "", fmt.Errorf("field %q: want a string, got %s", key, shorten(string(v)))
 	}
 	body, err := hexBody(s, digits, what)
+	if err != nil {
+		return "", fmt.Errorf("field %q: %v", key, err)
+	}
+	return "0x" + strings.ToLower(body), nil
+}
