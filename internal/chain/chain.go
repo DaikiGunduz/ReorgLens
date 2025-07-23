@@ -133,3 +133,6 @@ type Analysis struct {
 	WarnFindings  int `json:"warnFindings"`
 	TotalFindings int `json:"totalFindings"`
 
+	BadLines []block.BadLine `json:"-"`
+}
+
