@@ -152,3 +152,8 @@ func TestAnalyzeRejectsNonNumericRange(t *testing.T) {
 }
 
 func TestAnalyzeMissingFileExitsTwo(t *testing.T) {
+	code, _, errOut := runArgs("analyze", "samples/does-not-exist.jsonl")
+	if code != 2 {
+		t.Errorf("exit = %d, want 2", code)
+	}
+	if !strings.Contains(errOut, "reorglens:") {
