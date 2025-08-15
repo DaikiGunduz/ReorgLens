@@ -114,3 +114,5 @@ func TestTextCleanRun(t *testing.T) {
 	a.Orphans = nil
 	a.Mismatches = nil
 	a.Orders = nil
+	a.BadLines = nil
+	a.ErrorFindings, a.WarnFindings, a.TotalFindings = 0, 0, 0
