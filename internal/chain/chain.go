@@ -136,3 +136,7 @@ type Analysis struct {
 	BadLines []block.BadLine `json:"-"`
 }
 
+// Analyse computes the window analysis. It returns an error only for input
+// problems: no records, an empty window, or a window past MaxWindow.
+func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analysis, error) {
+	if len(records) == 0 {
