@@ -36,3 +36,4 @@ func TestReadAllValid(t *testing.T) {
 	}
 	if r.ParentHash != "0x"+parent64 {
 		t.Errorf("ParentHash = %q", r.ParentHash)
+	}
