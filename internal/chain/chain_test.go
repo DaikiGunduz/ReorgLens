@@ -266,3 +266,12 @@ func TestEmptyWindowIsAnError(t *testing.T) {
 }
 
 func TestNoRecordsIsAnError(t *testing.T) {
+	if _, err := analyse(t, nil, Options{}); err == nil {
+		t.Fatal("want an error when there are no records")
+	}
+}
+
+func TestWindowPastTheLimitIsAnError(t *testing.T) {
+	from, to := uint64(0), uint64(MaxWindow)
+	_, err := analyse(t, cleanChain(), Options{From: &from, To: &to})
+	if err == nil {
