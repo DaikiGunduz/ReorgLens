@@ -37,3 +37,5 @@ func TestReadAllValid(t *testing.T) {
 	if r.ParentHash != "0x"+parent64 {
 		t.Errorf("ParentHash = %q", r.ParentHash)
 	}
+	if r.Timestamp != 1712000000 {
+		t.Errorf("Timestamp = %d, want 1712000000", r.Timestamp)
