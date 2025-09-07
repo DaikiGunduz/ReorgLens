@@ -133,3 +133,9 @@ func cmdExplain(args []string, stdout, stderr io.Writer) int {
 	if len(args) > 0 {
 		fmt.Fprintln(stderr, "reorglens: explain takes no arguments")
 		return 2
+	}
+	if err := report.Explain(stdout); err != nil {
+		fmt.Fprintf(stderr, "reorglens: %v\n", err)
+		return 2
+	}
+	return 0
