@@ -293,3 +293,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 				Number: bNum, ParentNumber: aNum,
 				Expected: parent.Hash, Observed: child.ParentHash,
 			})
+		}
+
+		a.Timestamp.Checked++
+		if child.Timestamp <= parent.Timestamp {
+			a.Timestamp.OutOfOrder++
+			a.Orders = append(a.Orders, TimestampOrder{
+				Number: bNum, ParentNumber: aNum,
+				Timestamp: child.Timestamp, ParentTimestamp: parent.Timestamp,
