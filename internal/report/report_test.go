@@ -116,3 +116,6 @@ func TestTextCleanRun(t *testing.T) {
 	a.Orders = nil
 	a.BadLines = nil
 	a.ErrorFindings, a.WarnFindings, a.TotalFindings = 0, 0, 0
+	a.Invalid = 0
+
+	m := meta()
