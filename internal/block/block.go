@@ -161,3 +161,8 @@ func requireHex(raw map[string]json.RawMessage, key string, digits int, what str
 	}
 	return "0x" + strings.ToLower(body), nil
 }
+
+// hexBody checks the 0x prefix, the digit count, and the alphabet, and
+// returns the digits without the prefix.
+func hexBody(v string, want int, what string) (string, error) {
+	if !strings.HasPrefix(v, "0x") && !strings.HasPrefix(v, "0X") {
