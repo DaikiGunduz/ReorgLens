@@ -140,3 +140,6 @@ type Analysis struct {
 // problems: no records, an empty window, or a window past MaxWindow.
 func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analysis, error) {
 	if len(records) == 0 {
+		return nil, errors.New("no valid records to analyse")
+	}
+
