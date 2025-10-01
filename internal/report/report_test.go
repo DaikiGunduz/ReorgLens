@@ -207,3 +207,9 @@ func TestJSONDetailOrderIsFixed(t *testing.T) {
 		chain.ClassCanonicalConflict,
 		chain.ClassParentMismatch,
 		chain.ClassTimestampOrder,
+		chain.ClassMissing,
+		chain.ClassDuplicate,
+		chain.ClassOrphanSegment,
+	}
+	if len(rep.Detail) != len(want) {
+		t.Fatalf("detail = %d entries, want %d", len(rep.Detail), len(want))
