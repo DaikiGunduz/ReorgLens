@@ -98,3 +98,5 @@ func TestAnalyzeReorgedExitsOne(t *testing.T) {
 	}
 	if !strings.Contains(out, "findings    5  (2 error, 3 warn)") {
 		t.Errorf("out = %q", out)
+	}
+}
