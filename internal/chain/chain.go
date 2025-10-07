@@ -143,3 +143,7 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		return nil, errors.New("no valid records to analyse")
 	}
 
+	from, to := records[0].Number, records[0].Number
+	for _, r := range records {
+		if r.Number < from {
+			from = r.Number
