@@ -100,3 +100,5 @@ func TestAnalyzeReorgedExitsOne(t *testing.T) {
 		t.Errorf("out = %q", out)
 	}
 }
+
+func TestFailOnErrorStillExitsOneForAReorgedCapture(t *testing.T) {
