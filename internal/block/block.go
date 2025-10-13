@@ -166,3 +166,8 @@ func requireHex(raw map[string]json.RawMessage, key string, digits int, what str
 // returns the digits without the prefix.
 func hexBody(v string, want int, what string) (string, error) {
 	if !strings.HasPrefix(v, "0x") && !strings.HasPrefix(v, "0X") {
+		return "", fmt.Errorf("want %s as 0x prefixed hex, got %q", what, v)
+	}
+	body := v[2:]
+	if len(body) != want {
+		return "", fmt.Errorf("want %d hex digits after 0x, got %d", want, len(body))
