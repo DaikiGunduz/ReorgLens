@@ -157,3 +157,7 @@ func TestAnalyzeMissingFileExitsTwo(t *testing.T) {
 		t.Errorf("exit = %d, want 2", code)
 	}
 	if !strings.Contains(errOut, "reorglens:") {
+		t.Errorf("stderr = %q", errOut)
+	}
+}
+
