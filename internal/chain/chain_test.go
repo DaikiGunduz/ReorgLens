@@ -275,3 +275,13 @@ func TestWindowPastTheLimitIsAnError(t *testing.T) {
 	from, to := uint64(0), uint64(MaxWindow)
 	_, err := analyse(t, cleanChain(), Options{From: &from, To: &to})
 	if err == nil {
+		t.Fatal("want an error past MaxWindow")
+	}
+	if !strings.Contains(err.Error(), "the limit is") {
+		t.Errorf("error = %q, want it to name the limit", err)
+	}
+}
+
+func TestProducerStatsAreSorted(t *testing.T) {
+	a, err := Analyse(recordsWithProducers(t), nil, Options{})
+	if err != nil {
