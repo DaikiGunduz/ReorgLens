@@ -139,3 +139,8 @@ func cmdExplain(args []string, stdout, stderr io.Writer) int {
 		return 2
 	}
 	return 0
+}
+
+func read(path string) ([]*block.Record, []block.BadLine, error) {
+	f, err := os.Open(path)
+	if err != nil {
