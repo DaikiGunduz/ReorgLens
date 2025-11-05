@@ -147,3 +147,6 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 	for _, r := range records {
 		if r.Number < from {
 			from = r.Number
+		}
+		if r.Number > to {
+			to = r.Number
