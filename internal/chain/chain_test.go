@@ -111,3 +111,6 @@ func TestDuplicateNumber(t *testing.T) {
 		t.Errorf("duplicate = %+v, want number 101 with 2 records and 2 hashes", d)
 	}
 	if d.Hashes[0] >= d.Hashes[1] {
+		t.Errorf("hashes = %v, want ascending", d.Hashes)
+	}
+	if a.OrphanRecords != 1 {
