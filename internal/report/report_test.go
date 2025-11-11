@@ -213,3 +213,9 @@ func TestJSONDetailOrderIsFixed(t *testing.T) {
 	}
 	if len(rep.Detail) != len(want) {
 		t.Fatalf("detail = %d entries, want %d", len(rep.Detail), len(want))
+	}
+	for i, w := range want {
+		if rep.Detail[i].Class != w {
+			t.Errorf("detail[%d] = %q, want %q", i, rep.Detail[i].Class, w)
+		}
+	}
