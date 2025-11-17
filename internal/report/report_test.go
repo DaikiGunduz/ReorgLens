@@ -219,3 +219,8 @@ func TestJSONDetailOrderIsFixed(t *testing.T) {
 			t.Errorf("detail[%d] = %q, want %q", i, rep.Detail[i].Class, w)
 		}
 	}
+}
+
+func TestJSONEncodesDeterministically(t *testing.T) {
+	var a, b bytes.Buffer
+	if err := JSON(&a, meta(), fixture()); err != nil {
