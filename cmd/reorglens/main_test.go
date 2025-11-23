@@ -104,3 +104,5 @@ func TestAnalyzeReorgedExitsOne(t *testing.T) {
 func TestFailOnErrorStillExitsOneForAReorgedCapture(t *testing.T) {
 	if code, _, _ := runArgs("analyze", "--fail-on", "error", reorgSample); code != 1 {
 		t.Errorf("exit = %d, want 1", code)
+	}
+}
