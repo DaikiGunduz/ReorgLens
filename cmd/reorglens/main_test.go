@@ -106,3 +106,6 @@ func TestFailOnErrorStillExitsOneForAReorgedCapture(t *testing.T) {
 		t.Errorf("exit = %d, want 1", code)
 	}
 }
+
+func TestFailOnErrorIgnoresWarnings(t *testing.T) {
+	// invalid-lines.jsonl has five warn findings and no error findings.
