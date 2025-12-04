@@ -285,3 +285,12 @@ func TestWindowPastTheLimitIsAnError(t *testing.T) {
 func TestProducerStatsAreSorted(t *testing.T) {
 	a, err := Analyse(recordsWithProducers(t), nil, Options{})
 	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if !a.HasProducer {
+		t.Fatal("HasProducer = false, want true")
+	}
+	if len(a.Producers) != 2 {
+		t.Fatalf("Producers = %d, want 2", len(a.Producers))
+	}
+	for i := 1; i < len(a.Producers); i++ {
