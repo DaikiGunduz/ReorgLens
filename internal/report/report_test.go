@@ -224,3 +224,9 @@ func TestJSONDetailOrderIsFixed(t *testing.T) {
 func TestJSONEncodesDeterministically(t *testing.T) {
 	var a, b bytes.Buffer
 	if err := JSON(&a, meta(), fixture()); err != nil {
+		t.Fatalf("JSON: %v", err)
+	}
+	if err := JSON(&b, meta(), fixture()); err != nil {
+		t.Fatalf("JSON: %v", err)
+	}
+	if a.String() != b.String() {
