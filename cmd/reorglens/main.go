@@ -60,3 +60,5 @@ func run(args []string, stdout, stderr io.Writer) int {
 	}
 }
 
+func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
+	fs := flag.NewFlagSet("analyze", flag.ContinueOnError)
