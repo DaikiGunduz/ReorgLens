@@ -230,3 +230,9 @@ func TestJSONEncodesDeterministically(t *testing.T) {
 		t.Fatalf("JSON: %v", err)
 	}
 	if a.String() != b.String() {
+		t.Error("two encodings of the same analysis differ")
+	}
+}
+
+func TestJSONDetailIsEmptyWhenDetailIsOff(t *testing.T) {
+	m := meta()
