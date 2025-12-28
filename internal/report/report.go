@@ -137,3 +137,6 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 	bad := a.BadLines
 	if bad == nil {
 		bad = make([]block.BadLine, 0)
+	}
+
+	rep := jsonReport{
