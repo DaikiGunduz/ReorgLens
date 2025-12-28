@@ -236,3 +236,8 @@ func TestJSONEncodesDeterministically(t *testing.T) {
 
 func TestJSONDetailIsEmptyWhenDetailIsOff(t *testing.T) {
 	m := meta()
+	m.Detail = false
+	var buf bytes.Buffer
+	if err := JSON(&buf, m, fixture()); err != nil {
+		t.Fatalf("JSON: %v", err)
+	}
