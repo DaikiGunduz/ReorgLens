@@ -161,3 +161,8 @@ func TestAnalyzeMissingFileExitsTwo(t *testing.T) {
 	}
 }
 
+func TestAnalyzeWithoutAFileExitsTwo(t *testing.T) {
+	if code, _, _ := runArgs("analyze"); code != 2 {
+		t.Errorf("exit = %d, want 2", code)
+	}
+	if code, _, _ := runArgs("analyze", "a.jsonl", "b.jsonl"); code != 2 {
