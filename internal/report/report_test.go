@@ -119,3 +119,6 @@ func TestTextCleanRun(t *testing.T) {
 	a.Invalid = 0
 
 	m := meta()
+	m.ExitCode = 0
+
+	var buf bytes.Buffer
