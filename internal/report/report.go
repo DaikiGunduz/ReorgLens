@@ -220,3 +220,10 @@ func findingLines(a *chain.Analysis) []string {
 	}
 	for _, n := range a.Missing {
 		lines = append(lines, fmt.Sprintf("%-5s  %-18s number=%d",
+			chain.SeverityWarn, chain.ClassMissing, n))
+	}
+	for _, d := range a.Duplicates {
+		lines = append(lines, fmt.Sprintf("%-5s  %-18s number=%d records=%d hashes=%s",
+			chain.SeverityWarn, chain.ClassDuplicate,
+			d.Number, d.Records, strings.Join(d.Hashes, ",")))
+	}
