@@ -54,3 +54,5 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 	)
 	for sc.Scan() {
 		n++
+		text := sc.Text()
+		if strings.TrimSpace(text) == "" {
