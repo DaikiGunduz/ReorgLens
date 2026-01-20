@@ -301,3 +301,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			a.Orders = append(a.Orders, TimestampOrder{
 				Number: bNum, ParentNumber: aNum,
 				Timestamp: child.Timestamp, ParentTimestamp: parent.Timestamp,
+			})
+		}
+	}
+
+	// Producer tallies, only when the capture actually carries producers.
+	byProducer := make(map[string]*ProducerStats)
+	for _, r := range records {
+		if r.Number < from || r.Number > to || r.Producer == "" {
