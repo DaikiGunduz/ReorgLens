@@ -150,3 +150,8 @@ func read(path string) ([]*block.Record, []block.BadLine, error) {
 	records, bad, err := block.ReadAll(f)
 	if err != nil {
 		return nil, nil, fmt.Errorf("%s: %w", path, err)
+	}
+	return records, bad, nil
+}
+
+func write(w io.Writer, format string, meta report.Meta, a *chain.Analysis) error {
