@@ -155,3 +155,8 @@ func read(path string) ([]*block.Record, []block.BadLine, error) {
 }
 
 func write(w io.Writer, format string, meta report.Meta, a *chain.Analysis) error {
+	if format == "json" {
+		return report.JSON(w, meta, a)
+	}
+	return report.Text(w, meta, a)
+}
