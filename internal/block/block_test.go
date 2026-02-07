@@ -39,3 +39,5 @@ func TestReadAllValid(t *testing.T) {
 	}
 	if r.Timestamp != 1712000000 {
 		t.Errorf("Timestamp = %d, want 1712000000", r.Timestamp)
+	}
+	if r.Producer != "0xabcdef0123456789abcdef0123456789abcdef01" {
