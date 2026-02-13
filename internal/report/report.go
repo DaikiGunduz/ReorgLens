@@ -227,3 +227,11 @@ func findingLines(a *chain.Analysis) []string {
 			chain.SeverityWarn, chain.ClassDuplicate,
 			d.Number, d.Records, strings.Join(d.Hashes, ",")))
 	}
+	for _, o := range a.Orphans {
+		lines = append(lines, fmt.Sprintf("%-5s  %-18s from=%d to=%d records=%d",
+			chain.SeverityWarn, chain.ClassOrphanSegment, o.From, o.To, o.Records))
+	}
+	return lines
+}
+
+// findings builds the JSON detail list in the same order as findingLines.
