@@ -171,3 +171,9 @@ func hexBody(v string, want int, what string) (string, error) {
 	body := v[2:]
 	if len(body) != want {
 		return "", fmt.Errorf("want %d hex digits after 0x, got %d", want, len(body))
+	}
+	for i := 0; i < len(body); i++ {
+		c := body[i]
+		if (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F') {
+			continue
+		}
