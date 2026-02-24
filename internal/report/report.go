@@ -235,3 +235,10 @@ func findingLines(a *chain.Analysis) []string {
 }
 
 // findings builds the JSON detail list in the same order as findingLines.
+func findings(a *chain.Analysis) []Finding {
+	out := make([]Finding, 0, a.TotalFindings)
+	add := func(class, severity string, fields map[string]any) {
+		out = append(out, Finding{Class: class, Severity: severity, Fields: fields})
+	}
+	for _, c := range a.Conflicts {
+		add(chain.ClassCanonicalConflict, chain.SeverityError, map[string]any{
