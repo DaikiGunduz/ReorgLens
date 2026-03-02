@@ -294,3 +294,13 @@ func TestProducerStatsAreSorted(t *testing.T) {
 		t.Fatalf("Producers = %d, want 2", len(a.Producers))
 	}
 	for i := 1; i < len(a.Producers); i++ {
+		if a.Producers[i-1].Producer >= a.Producers[i].Producer {
+			t.Errorf("producers not sorted: %v", a.Producers)
+		}
+	}
+	if a.Producers[0].Producer != addr(1) || a.Producers[0].Total != 1 {
+		t.Errorf("first producer = %+v, want %s with 1 record", a.Producers[0], addr(1))
+	}
+	if a.Producers[1].Producer != addr(2) || a.Producers[1].Total != 2 {
+		t.Errorf("second producer = %+v, want %s with 2 records", a.Producers[1], addr(2))
+	}
