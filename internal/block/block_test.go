@@ -44,3 +44,5 @@ func TestReadAllValid(t *testing.T) {
 		t.Errorf("Producer = %q, want lowercase", r.Producer)
 	}
 	if !r.Canonical {
+		t.Error("Canonical = false, want true")
+	}
