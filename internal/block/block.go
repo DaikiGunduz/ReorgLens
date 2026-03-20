@@ -177,3 +177,8 @@ func hexBody(v string, want int, what string) (string, error) {
 		if (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F') {
 			continue
 		}
+		return "", fmt.Errorf("want hex digits only, found %q at offset %d", string(c), i)
+	}
+	return body, nil
+}
+
