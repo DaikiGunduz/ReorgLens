@@ -68,3 +68,5 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	format := fs.String("format", "text", "output format: text or json")
 	failOn := fs.String("fail-on", "any", "exit 1 threshold: any, error or never")
 	fs.Usage = func() {
+		fmt.Fprintln(stderr, "usage: reorglens analyze [flags] <file>")
+		fs.PrintDefaults()
