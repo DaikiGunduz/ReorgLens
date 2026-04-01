@@ -304,3 +304,13 @@ func TestProducerStatsAreSorted(t *testing.T) {
 	if a.Producers[1].Producer != addr(2) || a.Producers[1].Total != 2 {
 		t.Errorf("second producer = %+v, want %s with 2 records", a.Producers[1], addr(2))
 	}
+	if a.Producers[1].Canonical != 2 || a.Producers[1].Orphaned != 0 {
+		t.Errorf("second producer split = %+v, want 2 canonical and 0 orphaned", a.Producers[1])
+	}
+}
+
+// recordsWithProducers builds three linked blocks whose producer addresses are
+// deliberately not in sorted order in the input.
+func recordsWithProducers(t *testing.T) []*block.Record {
+	t.Helper()
+	producers := []string{addr(2), addr(1), addr(2)}
