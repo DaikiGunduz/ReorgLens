@@ -46,3 +46,5 @@ func TestReadAllValid(t *testing.T) {
 	if !r.Canonical {
 		t.Error("Canonical = false, want true")
 	}
+	if r.Line != 1 {
+		t.Errorf("Line = %d, want 1", r.Line)
