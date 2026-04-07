@@ -314,3 +314,12 @@ func TestProducerStatsAreSorted(t *testing.T) {
 func recordsWithProducers(t *testing.T) []*block.Record {
 	t.Helper()
 	producers := []string{addr(2), addr(1), addr(2)}
+	base := []string{
+		blk(100, h(100), h(99), 1000, true),
+		blk(101, h(101), h(100), 1012, true),
+		blk(102, h(102), h(101), 1024, true),
+	}
+	out := make([]string, 0, len(base))
+	for i, l := range base {
+		out = append(out, strings.TrimSuffix(l, "}")+`,"producer":"`+producers[i]+`"}`)
+	}
