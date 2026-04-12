@@ -109,3 +109,5 @@ func TestFailOnErrorStillExitsOneForAReorgedCapture(t *testing.T) {
 
 func TestFailOnErrorIgnoresWarnings(t *testing.T) {
 	// invalid-lines.jsonl has five warn findings and no error findings.
+	code, _, errOut := runArgs("analyze", "--fail-on", "error", invalidSample)
+	if code != 0 {
