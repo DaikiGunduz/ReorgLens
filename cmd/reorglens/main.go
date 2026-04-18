@@ -160,3 +160,9 @@ func write(w io.Writer, format string, meta report.Meta, a *chain.Analysis) erro
 	}
 	return report.Text(w, meta, a)
 }
+
+func exitCode(a *chain.Analysis, failOn string) int {
+	switch failOn {
+	case "never":
+		return 0
+	case "error":
