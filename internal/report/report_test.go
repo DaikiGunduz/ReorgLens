@@ -125,3 +125,6 @@ func TestTextCleanRun(t *testing.T) {
 	if err := Text(&buf, m, a); err != nil {
 		t.Fatalf("Text: %v", err)
 	}
+	out := buf.String()
+	if !strings.Contains(out, "findings: none") {
+		t.Errorf("want the explicit 'findings: none' marker\n%s", out)
