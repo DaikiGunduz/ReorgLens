@@ -171,3 +171,8 @@ func TestAnalyzeWithoutAFileExitsTwo(t *testing.T) {
 }
 
 func TestAnalyzeEmptyWindowExitsTwo(t *testing.T) {
+	code, _, errOut := runArgs("analyze", "--from", "999999", "--to", "1", cleanSample)
+	if code != 2 {
+		t.Errorf("exit = %d, want 2", code)
+	}
+	if !strings.Contains(errOut, "empty window") {
