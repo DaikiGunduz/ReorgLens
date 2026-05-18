@@ -242,3 +242,10 @@ func findings(a *chain.Analysis) []Finding {
 	}
 	for _, c := range a.Conflicts {
 		add(chain.ClassCanonicalConflict, chain.SeverityError, map[string]any{
+			"number": c.Number, "canonicalRecords": c.Records, "hashes": c.Hashes,
+		})
+	}
+	for _, m := range a.Mismatches {
+		add(chain.ClassParentMismatch, chain.SeverityError, map[string]any{
+			"number": m.Number, "parentNumber": m.ParentNumber,
+			"expected": m.Expected, "observed": m.Observed,
