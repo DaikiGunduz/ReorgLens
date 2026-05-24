@@ -323,3 +323,13 @@ func recordsWithProducers(t *testing.T) []*block.Record {
 	for i, l := range base {
 		out = append(out, strings.TrimSuffix(l, "}")+`,"producer":"`+producers[i]+`"}`)
 	}
+	recs, bad, err := block.ReadAll(strings.NewReader(strings.Join(out, "\n") + "\n"))
+	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
+	}
+	if len(bad) != 0 {
+		t.Fatalf("unexpected bad lines: %v", bad)
+	}
+	return recs
+}
+
