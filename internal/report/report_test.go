@@ -241,3 +241,9 @@ func TestJSONDetailIsEmptyWhenDetailIsOff(t *testing.T) {
 	if err := JSON(&buf, m, fixture()); err != nil {
 		t.Fatalf("JSON: %v", err)
 	}
+	var rep struct {
+		Detail []Finding `json:"detail"`
+	}
+	if err := json.Unmarshal(buf.Bytes(), &rep); err != nil {
+		t.Fatalf("decode: %v", err)
+	}
