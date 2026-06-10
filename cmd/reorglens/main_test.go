@@ -176,3 +176,8 @@ func TestAnalyzeEmptyWindowExitsTwo(t *testing.T) {
 		t.Errorf("exit = %d, want 2", code)
 	}
 	if !strings.Contains(errOut, "empty window") {
+		t.Errorf("stderr = %q", errOut)
+	}
+}
+
+func TestAnalyzeJsonOutputIsEncodable(t *testing.T) {
