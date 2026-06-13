@@ -247,3 +247,9 @@ func TestJSONDetailIsEmptyWhenDetailIsOff(t *testing.T) {
 	if err := json.Unmarshal(buf.Bytes(), &rep); err != nil {
 		t.Fatalf("decode: %v", err)
 	}
+	if len(rep.Detail) != 0 {
+		t.Errorf("detail = %d entries, want 0", len(rep.Detail))
+	}
+}
+
+func TestResultNamesTheDataState(t *testing.T) {
