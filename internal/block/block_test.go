@@ -48,3 +48,5 @@ func TestReadAllValid(t *testing.T) {
 	}
 	if r.Line != 1 {
 		t.Errorf("Line = %d, want 1", r.Line)
+	}
+}
