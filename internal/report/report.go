@@ -249,3 +249,10 @@ func findings(a *chain.Analysis) []Finding {
 		add(chain.ClassParentMismatch, chain.SeverityError, map[string]any{
 			"number": m.Number, "parentNumber": m.ParentNumber,
 			"expected": m.Expected, "observed": m.Observed,
+		})
+	}
+	for _, t := range a.Orders {
+		add(chain.ClassTimestampOrder, chain.SeverityError, map[string]any{
+			"number": t.Number, "parentNumber": t.ParentNumber,
+			"timestamp": t.Timestamp, "parentTimestamp": t.ParentTimestamp,
+		})
