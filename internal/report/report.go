@@ -143,3 +143,7 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 		Tool:    "reorglens",
 		Version: m.Version,
 		Command: m.Command,
+		Input:   m.Input,
+		Window: jsonWindow{
+			From: a.From, To: a.To, Numbers: a.Numbers,
+		},
