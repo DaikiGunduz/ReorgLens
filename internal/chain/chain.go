@@ -309,3 +309,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 	byProducer := make(map[string]*ProducerStats)
 	for _, r := range records {
 		if r.Number < from || r.Number > to || r.Producer == "" {
+			continue
+		}
+		a.HasProducer = true
+		ps := byProducer[r.Producer]
+		if ps == nil {
+			ps = &ProducerStats{Producer: r.Producer}
+			byProducer[r.Producer] = ps
+		}
+		ps.Total++
