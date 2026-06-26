@@ -113,3 +113,5 @@ func TestFailOnErrorIgnoresWarnings(t *testing.T) {
 	if code != 0 {
 		t.Errorf("exit = %d, want 0, stderr %q", code, errOut)
 	}
+}
+
