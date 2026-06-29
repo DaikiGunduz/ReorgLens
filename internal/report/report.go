@@ -256,3 +256,10 @@ func findings(a *chain.Analysis) []Finding {
 			"number": t.Number, "parentNumber": t.ParentNumber,
 			"timestamp": t.Timestamp, "parentTimestamp": t.ParentTimestamp,
 		})
+	}
+	for _, n := range a.Missing {
+		add(chain.ClassMissing, chain.SeverityWarn, map[string]any{"number": n})
+	}
+	for _, d := range a.Duplicates {
+		add(chain.ClassDuplicate, chain.SeverityWarn, map[string]any{
+			"number": d.Number, "records": d.Records, "hashes": d.Hashes,
