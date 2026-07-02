@@ -50,3 +50,4 @@ func TestReadAllValid(t *testing.T) {
 		t.Errorf("Line = %d, want 1", r.Line)
 	}
 }
+
