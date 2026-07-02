@@ -181,3 +181,8 @@ func TestAnalyzeEmptyWindowExitsTwo(t *testing.T) {
 }
 
 func TestAnalyzeJsonOutputIsEncodable(t *testing.T) {
+	code, out, _ := runArgs("analyze", "--format", "json", reorgSample)
+	if code != 1 {
+		t.Errorf("exit = %d, want 1", code)
+	}
+	if !json.Valid([]byte(out)) {
