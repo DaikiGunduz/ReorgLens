@@ -253,3 +253,8 @@ func TestJSONDetailIsEmptyWhenDetailIsOff(t *testing.T) {
 }
 
 func TestResultNamesTheDataState(t *testing.T) {
+	if got := Result(fixture()); got != "findings present" {
+		t.Errorf("Result = %q", got)
+	}
+	a := fixture()
+	a.TotalFindings = 0
