@@ -147,3 +147,6 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 		Window: jsonWindow{
 			From: a.From, To: a.To, Numbers: a.Numbers,
 		},
+		Records: jsonRecords{
+			Valid: a.Valid, Invalid: a.Invalid, Outside: a.Outside,
+		},
