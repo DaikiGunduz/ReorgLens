@@ -182,3 +182,8 @@ func hexBody(v string, want int, what string) (string, error) {
 	return body, nil
 }
 
+func isNull(v json.RawMessage) bool {
+	return strings.TrimSpace(string(v)) == "null"
+}
+
+func shorten(s string) string {
