@@ -150,3 +150,6 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 		Records: jsonRecords{
 			Valid: a.Valid, Invalid: a.Invalid, Outside: a.Outside,
 		},
+		Chain: jsonChain{
+			CanonicalRecords: a.CanonicalRecords,
+			OrphanRecords:    a.OrphanRecords,
