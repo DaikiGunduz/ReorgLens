@@ -149,3 +149,7 @@ func TestUnknownFieldsIgnored(t *testing.T) {
 	if err != nil || len(bad) != 0 || len(recs) != 1 {
 		t.Fatalf("err=%v bad=%v recs=%d", err, bad, len(recs))
 	}
+}
+
+func TestOverlongLineIsAReadError(t *testing.T) {
+	_, _, err := read(t, strings.Repeat("a", MaxLineBytes+1)+"\n")
