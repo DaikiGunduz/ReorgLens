@@ -258,3 +258,9 @@ func TestResultNamesTheDataState(t *testing.T) {
 	}
 	a := fixture()
 	a.TotalFindings = 0
+	if got := Result(a); got != "clean" {
+		t.Errorf("Result = %q, want clean", got)
+	}
+}
+
+func TestExplainCoversEveryClass(t *testing.T) {
