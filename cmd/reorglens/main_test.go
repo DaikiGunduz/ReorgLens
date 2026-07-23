@@ -186,3 +186,7 @@ func TestAnalyzeJsonOutputIsEncodable(t *testing.T) {
 		t.Errorf("exit = %d, want 1", code)
 	}
 	if !json.Valid([]byte(out)) {
+		t.Fatalf("output is not valid JSON:\n%s", out)
+	}
+	var rep map[string]any
+	if err := json.Unmarshal([]byte(out), &rep); err != nil {
