@@ -53,3 +53,5 @@ func TestReadAllValid(t *testing.T) {
 
 func TestBlankLinesAreSkipped(t *testing.T) {
 	recs, bad, err := read(t, "\n  \n"+goodLine+"\n\n")
+	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
