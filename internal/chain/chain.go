@@ -318,3 +318,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			byProducer[r.Producer] = ps
 		}
 		ps.Total++
+		if r.Canonical {
+			ps.Canonical++
+		} else {
+			ps.Orphaned++
+		}
+	}
+	if a.HasProducer {
+		for _, ps := range byProducer {
