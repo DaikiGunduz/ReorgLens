@@ -70,3 +70,5 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 	fs.Usage = func() {
 		fmt.Fprintln(stderr, "usage: reorglens analyze [flags] <file>")
 		fs.PrintDefaults()
+		fmt.Fprintln(stderr, "\nexit codes: 0 clean, 1 findings, 2 usage or input error")
+	}
