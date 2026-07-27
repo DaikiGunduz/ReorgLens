@@ -166,3 +166,8 @@ func exitCode(a *chain.Analysis, failOn string) int {
 	case "never":
 		return 0
 	case "error":
+		if a.ErrorFindings > 0 {
+			return 1
+		}
+		return 0
+	default:
