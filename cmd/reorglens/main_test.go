@@ -190,3 +190,8 @@ func TestAnalyzeJsonOutputIsEncodable(t *testing.T) {
 	}
 	var rep map[string]any
 	if err := json.Unmarshal([]byte(out), &rep); err != nil {
+		t.Fatalf("decode: %v", err)
+	}
+	if rep["tool"] != "reorglens" {
+		t.Errorf("tool = %v", rep["tool"])
+	}
