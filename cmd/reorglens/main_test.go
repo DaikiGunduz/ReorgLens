@@ -195,3 +195,8 @@ func TestAnalyzeJsonOutputIsEncodable(t *testing.T) {
 	if rep["tool"] != "reorglens" {
 		t.Errorf("tool = %v", rep["tool"])
 	}
+	if rep["exitCode"] != float64(1) {
+		t.Errorf("exitCode = %v, want 1", rep["exitCode"])
+	}
+	if rep["result"] != "findings present" {
+		t.Errorf("result = %v", rep["result"])
