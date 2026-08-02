@@ -153,3 +153,8 @@ func TestUnknownFieldsIgnored(t *testing.T) {
 
 func TestOverlongLineIsAReadError(t *testing.T) {
 	_, _, err := read(t, strings.Repeat("a", MaxLineBytes+1)+"\n")
+	if err == nil {
+		t.Fatal("want an error for a line past MaxLineBytes")
+	}
+}
+
