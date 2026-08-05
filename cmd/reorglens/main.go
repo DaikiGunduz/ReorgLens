@@ -171,3 +171,9 @@ func exitCode(a *chain.Analysis, failOn string) int {
 		}
 		return 0
 	default:
+		if a.TotalFindings > 0 {
+			return 1
+		}
+		return 0
+	}
+}
