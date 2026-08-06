@@ -264,3 +264,9 @@ func TestResultNamesTheDataState(t *testing.T) {
 }
 
 func TestExplainCoversEveryClass(t *testing.T) {
+	var buf bytes.Buffer
+	if err := Explain(&buf); err != nil {
+		t.Fatalf("Explain: %v", err)
+	}
+	out := buf.String()
+	for _, c := range []string{
