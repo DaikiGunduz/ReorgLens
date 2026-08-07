@@ -263,3 +263,10 @@ func findings(a *chain.Analysis) []Finding {
 	for _, d := range a.Duplicates {
 		add(chain.ClassDuplicate, chain.SeverityWarn, map[string]any{
 			"number": d.Number, "records": d.Records, "hashes": d.Hashes,
+		})
+	}
+	for _, o := range a.Orphans {
+		add(chain.ClassOrphanSegment, chain.SeverityWarn, map[string]any{
+			"from": o.From, "to": o.To, "records": o.Records,
+		})
+	}
