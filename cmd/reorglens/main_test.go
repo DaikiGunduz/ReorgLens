@@ -115,3 +115,5 @@ func TestFailOnErrorIgnoresWarnings(t *testing.T) {
 	}
 }
 
+func TestFailOnNeverAlwaysExitsZero(t *testing.T) {
+	if code, _, _ := runArgs("analyze", "--fail-on", "never", reorgSample); code != 0 {
