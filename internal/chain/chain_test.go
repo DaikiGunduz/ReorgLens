@@ -333,3 +333,12 @@ func recordsWithProducers(t *testing.T) []*block.Record {
 	return recs
 }
 
+func TestBadLinesAreCarriedThrough(t *testing.T) {
+	recs, bad, err := block.ReadAll(strings.NewReader("nope\n"))
+	if err != nil {
+		t.Fatalf("ReadAll: %v", err)
+	}
+	if len(bad) != 1 {
+		t.Fatalf("bad = %d, want 1", len(bad))
+	}
+	if _, err := Analyse(recs, bad, Options{}); err == nil {
