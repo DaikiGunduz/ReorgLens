@@ -270,3 +270,8 @@ func TestExplainCoversEveryClass(t *testing.T) {
 	}
 	out := buf.String()
 	for _, c := range []string{
+		chain.ClassCanonicalConflict,
+		chain.ClassParentMismatch,
+		chain.ClassTimestampOrder,
+		chain.ClassMissing,
+		chain.ClassDuplicate,
