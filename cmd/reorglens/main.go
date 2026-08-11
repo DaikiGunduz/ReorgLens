@@ -72,3 +72,5 @@ func cmdAnalyze(args []string, stdout, stderr io.Writer) int {
 		fs.PrintDefaults()
 		fmt.Fprintln(stderr, "\nexit codes: 0 clean, 1 findings, 2 usage or input error")
 	}
+	if err := fs.Parse(args); err != nil {
+		if errors.Is(err, flag.ErrHelp) {
