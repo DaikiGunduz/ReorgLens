@@ -158,3 +158,7 @@ func TestOverlongLineIsAReadError(t *testing.T) {
 	}
 }
 
+func TestShorten(t *testing.T) {
+	if got := shorten("short"); got != "short" {
+		t.Errorf("shorten(short) = %q", got)
+	}
