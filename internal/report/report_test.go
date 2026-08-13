@@ -275,3 +275,9 @@ func TestExplainCoversEveryClass(t *testing.T) {
 		chain.ClassTimestampOrder,
 		chain.ClassMissing,
 		chain.ClassDuplicate,
+		chain.ClassOrphanSegment,
+	} {
+		if !strings.Contains(out, c) {
+			t.Errorf("explain does not mention %q", c)
+		}
+	}
