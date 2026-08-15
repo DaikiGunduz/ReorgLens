@@ -326,3 +326,12 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 	}
 	if a.HasProducer {
 		for _, ps := range byProducer {
+			a.Producers = append(a.Producers, *ps)
+		}
+		slices.SortFunc(a.Producers, func(x, y ProducerStats) int {
+			return strings.Compare(x.Producer, y.Producer)
+		})
+	}
+
+	a.ErrorFindings = len(a.Conflicts) + len(a.Mismatches) + len(a.Orders)
+	a.WarnFindings = len(a.Missing) + len(a.Duplicates) + len(a.Orphans)
