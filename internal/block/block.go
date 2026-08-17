@@ -62,3 +62,5 @@ func ReadAll(r io.Reader) ([]*Record, []BadLine, error) {
 		if err != nil {
 			bad = append(bad, BadLine{Line: n, Reason: err.Error(), Text: shorten(text)})
 			continue
+		}
+		records = append(records, rec)
