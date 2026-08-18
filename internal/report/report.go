@@ -270,3 +270,11 @@ func findings(a *chain.Analysis) []Finding {
 			"from": o.From, "to": o.To, "records": o.Records,
 		})
 	}
+	return out
+}
+
+func byClass(a *chain.Analysis) map[string]int {
+	m := map[string]int{
+		chain.ClassMissing:           len(a.Missing),
+		chain.ClassDuplicate:         len(a.Duplicates),
+		chain.ClassCanonicalConflict: len(a.Conflicts),
