@@ -159,3 +159,6 @@ func JSON(w io.Writer, m Meta, a *chain.Analysis) error {
 			Conflicts:        len(a.Conflicts),
 		},
 		Parent:    a.Parent,
+		Timestamp: a.Timestamp,
+		Producers: producers,
+		Findings: jsonFindings{
