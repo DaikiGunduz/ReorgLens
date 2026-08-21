@@ -117,3 +117,6 @@ func TestFailOnErrorIgnoresWarnings(t *testing.T) {
 
 func TestFailOnNeverAlwaysExitsZero(t *testing.T) {
 	if code, _, _ := runArgs("analyze", "--fail-on", "never", reorgSample); code != 0 {
+		t.Errorf("exit = %d, want 0", code)
+	}
+}
