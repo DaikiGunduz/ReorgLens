@@ -200,3 +200,8 @@ func TestAnalyzeJsonOutputIsEncodable(t *testing.T) {
 	}
 	if rep["result"] != "findings present" {
 		t.Errorf("result = %v", rep["result"])
+	}
+}
+
+func TestAnalyzeRangeFlagsNarrowTheWindow(t *testing.T) {
+	code, out, errOut := runArgs("analyze", "--from", "19000110", "--to", "19000114", reorgSample)
