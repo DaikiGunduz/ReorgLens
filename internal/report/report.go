@@ -278,3 +278,10 @@ func byClass(a *chain.Analysis) map[string]int {
 		chain.ClassMissing:           len(a.Missing),
 		chain.ClassDuplicate:         len(a.Duplicates),
 		chain.ClassCanonicalConflict: len(a.Conflicts),
+		chain.ClassOrphanSegment:     len(a.Orphans),
+		chain.ClassParentMismatch:    len(a.Mismatches),
+		chain.ClassTimestampOrder:    len(a.Orders),
+	}
+	return m
+}
+
