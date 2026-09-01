@@ -177,3 +177,8 @@ func exitCode(a *chain.Analysis, failOn string) int {
 		return 0
 	}
 }
+
+func parseUint(name, v string) (*uint64, error) {
+	if v == "" {
+		return nil, nil
+	}
