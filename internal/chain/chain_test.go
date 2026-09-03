@@ -342,3 +342,13 @@ func TestBadLinesAreCarriedThrough(t *testing.T) {
 		t.Fatalf("bad = %d, want 1", len(bad))
 	}
 	if _, err := Analyse(recs, bad, Options{}); err == nil {
+		t.Fatal("want an error when nothing parsed")
+	}
+}
+
+func TestInputOrderDoesNotChangeTheResult(t *testing.T) {
+	forward := cleanChain()
+	reversed := []string{forward[3], forward[1], forward[0], forward[2]}
+
+	a1, err := analyse(t, forward, Options{})
+	if err != nil {
