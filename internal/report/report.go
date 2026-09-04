@@ -285,3 +285,10 @@ func byClass(a *chain.Analysis) map[string]int {
 	return m
 }
 
+// Explain prints the finding class reference, which is the same table the
+// README and docs/FORMAT.md carry, so the terminal help cannot drift from the
+// documentation.
+func Explain(w io.Writer) error {
+	const text = `finding classes
+
+  class                severity  trigger
