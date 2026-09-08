@@ -182,3 +182,9 @@ func parseUint(name, v string) (*uint64, error) {
 	if v == "" {
 		return nil, nil
 	}
+	n, err := strconv.ParseUint(v, 10, 64)
+	if err != nil {
+		return nil, fmt.Errorf("--%s must be an unsigned integer, got %q", name, v)
+	}
+	return &n, nil
+}
