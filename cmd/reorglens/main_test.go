@@ -205,3 +205,8 @@ func TestAnalyzeJsonOutputIsEncodable(t *testing.T) {
 
 func TestAnalyzeRangeFlagsNarrowTheWindow(t *testing.T) {
 	code, out, errOut := runArgs("analyze", "--from", "19000110", "--to", "19000114", reorgSample)
+	if code != 1 {
+		t.Fatalf("exit = %d, want 1, stderr %q", code, errOut)
+	}
+	if !strings.Contains(out, "window      19000110..19000114  (5 numbers)") {
+		t.Errorf("out = %q", out)
