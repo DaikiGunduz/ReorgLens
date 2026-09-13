@@ -292,3 +292,10 @@ func Explain(w io.Writer) error {
 	const text = `finding classes
 
   class                severity  trigger
+  -------------------  --------  ---------------------------------------------------------
+  canonical-conflict   error     more than one record at a number flagged canonical
+  parent-mismatch      error     adjacent canonical records whose parent hashes disagree
+  timestamp-order      error     adjacent canonical record whose timestamp does not increase
+  missing              warn      a number in the window has no record at all
+  duplicate            warn      a number carries more than one distinct hash
+  orphan-segment       warn      a run of numbers has records but no canonical record
