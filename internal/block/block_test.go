@@ -162,3 +162,7 @@ func TestShorten(t *testing.T) {
 	if got := shorten("short"); got != "short" {
 		t.Errorf("shorten(short) = %q", got)
 	}
+	long := strings.Repeat("x", maxTextBytes+50)
+	got := shorten(long)
+	if len(got) != maxTextBytes+3 {
+		t.Errorf("len = %d, want %d", len(got), maxTextBytes+3)
