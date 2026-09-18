@@ -281,3 +281,9 @@ func TestExplainCoversEveryClass(t *testing.T) {
 			t.Errorf("explain does not mention %q", c)
 		}
 	}
+	for _, c := range []string{"exit codes", "severity"} {
+		if !strings.Contains(out, c) {
+			t.Errorf("explain does not contain %q", c)
+		}
+	}
+}
