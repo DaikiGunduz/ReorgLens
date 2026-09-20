@@ -166,3 +166,8 @@ func TestShorten(t *testing.T) {
 	got := shorten(long)
 	if len(got) != maxTextBytes+3 {
 		t.Errorf("len = %d, want %d", len(got), maxTextBytes+3)
+	}
+	if !strings.HasSuffix(got, "...") {
+		t.Errorf("want an ellipsis marker, got %q", got)
+	}
+}
