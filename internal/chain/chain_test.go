@@ -352,3 +352,13 @@ func TestInputOrderDoesNotChangeTheResult(t *testing.T) {
 
 	a1, err := analyse(t, forward, Options{})
 	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	a2, err := analyse(t, reversed, Options{})
+	if err != nil {
+		t.Fatalf("Analyse: %v", err)
+	}
+	if fmt.Sprintf("%+v", a1) != fmt.Sprintf("%+v", a2) {
+		t.Errorf("analysis depends on input order:\n%+v\n%+v", a1, a2)
+	}
+}
