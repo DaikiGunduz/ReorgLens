@@ -299,3 +299,10 @@ func Explain(w io.Writer) error {
   missing              warn      a number in the window has no record at all
   duplicate            warn      a number carries more than one distinct hash
   orphan-segment       warn      a run of numbers has records but no canonical record
+
+severity
+
+  error   the canonical chain does not hold together
+  warn    the capture is incomplete or ambiguous, the chain still reads
+
+exit codes
