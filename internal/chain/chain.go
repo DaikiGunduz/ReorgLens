@@ -335,3 +335,11 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 
 	a.ErrorFindings = len(a.Conflicts) + len(a.Mismatches) + len(a.Orders)
 	a.WarnFindings = len(a.Missing) + len(a.Duplicates) + len(a.Orphans)
+	a.TotalFindings = a.ErrorFindings + a.WarnFindings
+	return a, nil
+}
+
+func distinct(recs []*block.Record, key func(*block.Record) string) []string {
+	seen := make(map[string]bool, len(recs))
+	out := make([]string, 0, len(recs))
+	for _, r := range recs {
