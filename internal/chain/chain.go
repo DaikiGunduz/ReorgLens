@@ -343,3 +343,12 @@ func distinct(recs []*block.Record, key func(*block.Record) string) []string {
 	seen := make(map[string]bool, len(recs))
 	out := make([]string, 0, len(recs))
 	for _, r := range recs {
+		k := key(r)
+		if !seen[k] {
+			seen[k] = true
+			out = append(out, k)
+		}
+	}
+	slices.Sort(out)
+	return out
+}
