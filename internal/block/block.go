@@ -187,3 +187,9 @@ func isNull(v json.RawMessage) bool {
 }
 
 func shorten(s string) string {
+	s = strings.TrimSpace(s)
+	if len(s) <= maxTextBytes {
+		return s
+	}
+	return s[:maxTextBytes] + "..."
+}
