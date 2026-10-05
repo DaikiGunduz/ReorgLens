@@ -306,3 +306,11 @@ severity
   warn    the capture is incomplete or ambiguous, the chain still reads
 
 exit codes
+
+  0   no finding at or above the --fail-on threshold
+  1   at least one finding at or above the threshold
+  2   usage error, unreadable input, or an empty window
+`
+	_, err := io.WriteString(w, text)
+	return err
+}
