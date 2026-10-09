@@ -211,7 +211,8 @@ func TestAnalyzeRangeFlagsNarrowTheWindow(t *testing.T) {
 	if !strings.Contains(out, "window      19000110..19000114  (5 numbers)") {
 		t.Errorf("out = %q", out)
 	}
-	if !strings.Contains(out, "4 outside") {
+	// the shipped sample carries 23 records; 4 fall inside 19000110..19000114
+	if !strings.Contains(out, "19 outside") {
 		t.Errorf("out = %q", out)
 	}
 }
