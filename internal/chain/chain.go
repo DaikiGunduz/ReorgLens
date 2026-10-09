@@ -221,11 +221,6 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 		recs := byNumber[num]
 
 		hashes := distinct(recs, func(r *block.Record) string { return r.Hash })
-		if len(hashes) > 1 {
-			a.Duplicates = append(a.Duplicates, Duplicate{
-				Number: num, Records: len(recs), Hashes: hashes,
-			})
-		}
 
 		var canon []*block.Record
 		for _, r := range recs {
@@ -236,6 +231,16 @@ func Analyse(records []*block.Record, bad []block.BadLine, opts Options) (*Analy
 			}
 		}
 		a.CanonicalRecords += len(canon)
+
+		// A number with more than one canonical record is a conflict, which is the
+		// stronger claim: it breaks the chain rather than merely making the capture
+		// ambiguous. Counting it twice (as a conflict AND as a duplicate) inflated
+		// the warning total for one underlying problem.
+		if len(hashes) > 1 && len(canon) <= 1 {
+			a.Duplicates = append(a.Duplicates, Duplicate{
+				Number: num, Records: len(recs), Hashes: hashes,
+			})
+		}
 
 		if len(canon) > 1 {
 			a.Conflicts = append(a.Conflicts, Conflict{
