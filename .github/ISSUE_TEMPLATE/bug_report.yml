@@ -1,0 +1,23 @@
+name: Bug report
+description: Something produced a wrong or missing report
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What the tool did, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The command, the input file (or a minimal excerpt), and the output.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `reorglens -version`, or the commit you built from.
