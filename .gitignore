@@ -1,0 +1,15 @@
+# build output
+/reorglens
+/dist/
+*.exe
+*.test
+*.out
+
+# editor
+.idea/
+.vscode/
+*.swp
+
+# os
+.DS_Store
+Thumbs.db
